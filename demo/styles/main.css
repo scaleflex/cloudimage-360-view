@@ -760,6 +760,11 @@ body {
   border-color: rgba(255, 255, 255, 0.2);
 }
 
+/* ── Section scroll offset for fixed nav ───────── */
+section[id] {
+  scroll-margin-top: calc(var(--topbar-height) + 16px);
+}
+
 /* ── Programmatic Section ──────────────────────── */
 .demo-programmatic {
   display: grid;

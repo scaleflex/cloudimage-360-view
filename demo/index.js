@@ -39,7 +39,34 @@ if (nav) {
   };
 
   window.addEventListener('scroll', updateActiveLink, { passive: true });
+
+  // Smooth scroll nav links (avoids layout-shift issues with default hash jump)
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      if (!href || !href.startsWith('#')) return;
+      const target = document.querySelector(href);
+      if (!target) return;
+      e.preventDefault();
+      history.replaceState(null, '', href);
+      target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
 }
+
+// Re-scroll to hash target after viewers load (images shift layout)
+function scrollToHashAfterLoad() {
+  const hash = location.hash;
+  if (!hash) return;
+  const target = document.querySelector(hash);
+  if (!target) return;
+  target.scrollIntoView({ behavior: 'smooth' });
+}
+
+window.addEventListener('load', () => {
+  // Delay to let 360 viewers render their first frame and set dimensions
+  setTimeout(scrollToHashAfterLoad, 500);
+});
 
 import {
   EARBUDS_PLUGIN,
