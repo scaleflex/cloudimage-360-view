@@ -9,9 +9,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js" defer></script>
     <title>JS-Cloudimage-360-view</title>
-    <script type="module" crossorigin src="/js-cloudimage-360-view/assets/index-p6y3pJnQ.js"></script>
-    <link rel="stylesheet" crossorigin href="/js-cloudimage-360-view/assets/index-CeOk0usH.css">
+    <script type="module" crossorigin src="/js-cloudimage-360-view/assets/index-CSU7OviJ.js"></script>
+    <link rel="stylesheet" crossorigin href="/js-cloudimage-360-view/assets/index-MS3afdv2.css">
   </head>
 
   <body>
@@ -24,6 +27,7 @@
         <div class="demo-nav-links">
           <a href="#hero" class="active">Demo</a>
           <a href="#gallery">Brands</a>
+          <a href="#grid-2d">2D Grid</a>
           <a href="#programmatic">Programmatic</a>
           <a href="#configurator">Configurator</a>
         </div>
@@ -548,6 +552,39 @@
                 </div>
                 <div class="output-code-wrapper" id="code-wrapper">
                   <div class="output-code">&lt;div<div class="code" id="code-block"></div>&gt;&lt;/div&gt;</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- 2D Grid Section -->
+      <section id="grid-2d" class="demo-section">
+        <div class="demo-section-inner">
+          <div class="demo-section-header">
+            <div class="demo-section-label">New</div>
+            <h2>2D Grid Mode</h2>
+            <p>True two-axis product viewing &mdash; drag horizontally to rotate on the X axis, vertically to rotate on the Y axis. 24 &times; 4 angles (96 images).</p>
+          </div>
+          <div class="demo-grid-2d demo-reveal">
+            <div class="demo-grid-2d-viewer">
+              <div class="demo-grid-tabs">
+                <button class="demo-grid-tab active" data-tab="view">View</button>
+                <button class="demo-grid-tab" data-tab="code">Code</button>
+              </div>
+              <div class="demo-grid-panel active" id="grid-panel-view">
+                <div class="demo-viewer">
+                  <div id="grid-2d-viewer"></div>
+                </div>
+                <div class="demo-grid-2d-info">
+                  <span id="grid-position">Position: (0, 0)</span>
+                  <span>24 &times; 4 grid &bull; 96 images</span>
+                </div>
+              </div>
+              <div class="demo-grid-panel" id="grid-panel-code">
+                <div class="demo-grid-code-wrapper">
+                  <button class="demo-grid-copy-btn" id="grid-copy-btn">Copy</button>
+                  <pre><code id="grid-code-block" class="language-javascript"></code></pre>
                 </div>
               </div>
             </div>

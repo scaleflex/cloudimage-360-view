@@ -1,16 +1,16 @@
-import { jsx as Ze } from "react/jsx-runtime";
-import { useState as ge, useRef as I, useId as Le, useEffect as Oe, useCallback as ke, forwardRef as Pe, useMemo as be, useImperativeHandle as Ae } from "react";
-let v = null;
-function Fe(d, t) {
-  const [C, f] = ge(!1), n = I(null), i = I(null), m = Le();
-  Oe(() => {
+import { jsx as ke } from "react/jsx-runtime";
+import { useState as Pe, useRef as I, useId as Xe, useEffect as Ye, useCallback as be, forwardRef as Ee, useMemo as Fe, useImperativeHandle as Ge } from "react";
+let w = null;
+function xe(d, t) {
+  const [C, f] = Pe(!1), a = I(null), i = I(null), m = Xe();
+  Ye(() => {
     if (typeof window > "u" || !d.current || t.autoInit === !1) return;
     let l = !0;
-    const a = d.current;
+    const n = d.current;
     return (async () => {
       try {
-        if (v || (v = (await import("./ci360-BJ_JCEiA.mjs")).default), !a || !l) return;
-        a.id || (a.id = `ci360-${m.replace(/:/g, "")}`);
+        if (w || (w = (await import("./ci360-RrBk2Ggj.mjs")).default), !n || !l) return;
+        n.id || (n.id = `ci360-${m.replace(/:/g, "")}`);
         const s = {
           ...t,
           onReady: (u) => {
@@ -18,17 +18,17 @@ function Fe(d, t) {
             l && (f(!0), (p = t.onReady) == null || p.call(t, u));
           }
         };
-        i.current = new v(), n.current = i.current.init(a, s);
+        i.current = new w(), a.current = i.current.init(n, s);
       } catch (s) {
         console.error("Failed to initialize CI360 viewer:", s);
       }
     })(), () => {
-      if (l = !1, n.current) {
+      if (l = !1, a.current) {
         try {
-          n.current.destroy();
+          a.current.destroy();
         } catch {
         }
-        n.current = null;
+        a.current = null;
       }
       i.current = null, f(!1);
     };
@@ -36,8 +36,10 @@ function Fe(d, t) {
     t.folder,
     t.filenameX,
     t.filenameY,
+    t.filenameGrid,
     t.imageListX,
     t.imageListY,
+    t.imageListGrid,
     t.amountX,
     t.amountY,
     t.hotspots,
@@ -47,170 +49,180 @@ function Fe(d, t) {
     t.cropGravity,
     m
   ]);
-  const y = ke(() => n.current, []);
+  const y = be(() => a.current, []);
   return {
-    viewer: n.current,
+    viewer: a.current,
     isReady: C,
     getViewer: y
   };
 }
-const Xe = (d, t) => {
+const Be = (d, t) => {
   const {
     // Container props
     id: C,
     className: f,
-    style: n,
+    style: a,
     // Image source
     folder: i,
     apiVersion: m,
     filenameX: y,
     filenameY: l,
-    imageListX: a,
-    imageListY: w,
-    indexZeroBase: s,
-    amountX: u,
-    amountY: p,
+    filenameGrid: n,
+    imageListX: v,
+    imageListY: s,
+    imageListGrid: u,
+    indexZeroBase: p,
+    amountX: R,
+    amountY: h,
     // Behavior
-    draggable: R,
-    swipeable: h,
-    keys: z,
+    draggable: z,
+    swipeable: g,
+    keys: L,
     keysReverse: V,
     autoplay: S,
     autoplayBehavior: T,
     playOnce: Z,
-    speed: g,
-    autoplayReverse: L,
-    dragSpeed: O,
-    dragReverse: k,
-    stopAtEdges: P,
-    inertia: b,
+    speed: A,
+    autoplayReverse: O,
+    dragSpeed: k,
+    dragReverse: P,
+    stopAtEdges: X,
+    stopAtEdgesX: Y,
+    stopAtEdgesY: b,
+    inertia: E,
     // UI Features
-    fullscreen: A,
-    magnifier: F,
-    pointerZoom: X,
-    pinchZoom: Y,
-    zoomMax: x,
-    zoomStep: B,
-    zoomControls: D,
-    zoomControlsPosition: E,
-    scrollHint: H,
-    bottomCircle: M,
-    bottomCircleOffset: G,
-    initialIconShown: N,
-    hide360Logo: j,
-    logoSrc: q,
-    imageInfo: $,
-    hints: J,
-    theme: K,
-    markerTheme: Q,
-    brandColor: U,
+    fullscreen: F,
+    magnifier: G,
+    pointerZoom: x,
+    pinchZoom: B,
+    zoomMax: D,
+    zoomStep: H,
+    zoomControls: M,
+    zoomControlsPosition: N,
+    scrollHint: j,
+    bottomCircle: q,
+    bottomCircleOffset: $,
+    initialIconShown: J,
+    hide360Logo: K,
+    logoSrc: Q,
+    imageInfo: U,
+    hints: W,
+    theme: _,
+    markerTheme: ee,
+    brandColor: oe,
     // Cloudimage CDN
-    ciToken: W,
-    ciFilters: _,
-    ciTransformation: ee,
-    cropAspectRatio: oe,
-    cropGravity: te,
+    ciToken: te,
+    ciFilters: re,
+    ciTransformation: ae,
+    cropAspectRatio: ne,
+    cropGravity: se,
     // Loading
-    lazyload: re,
+    lazyload: ie,
     // Hotspots
-    hotspots: ne,
-    hotspotTrigger: ae,
-    hotspotTimelineOnClick: se,
+    hotspots: le,
+    hotspotTrigger: me,
+    hotspotTimelineOnClick: ue,
     // Container
-    aspectRatio: ie,
+    aspectRatio: pe,
     // Event callbacks
-    onReady: le,
-    onLoad: me,
-    onSpin: ue,
-    onAutoplayStart: pe,
-    onAutoplayStop: ce,
-    onFullscreenOpen: de,
-    onFullscreenClose: fe,
-    onZoomIn: ye,
-    onZoomOut: Ce,
-    onDragStart: we,
-    onDragEnd: ve,
-    onHotspotOpen: Ie,
-    onHotspotClose: Re,
-    onProductClick: he,
-    onError: ze,
-    ...Se
-  } = d, Ve = I(null), Te = be(
+    onReady: ce,
+    onLoad: de,
+    onSpin: fe,
+    onAutoplayStart: ye,
+    onAutoplayStop: Ce,
+    onFullscreenOpen: ve,
+    onFullscreenClose: we,
+    onZoomIn: Ie,
+    onZoomOut: Re,
+    onDragStart: he,
+    onDragEnd: ze,
+    onHotspotOpen: ge,
+    onHotspotClose: Le,
+    onProductClick: Ve,
+    onNavigate: Se,
+    onError: Te,
+    ...Ae
+  } = d, Ze = I(null), Oe = Fe(
     () => ({
       // Image source
       folder: i,
       apiVersion: m,
       filenameX: y,
       filenameY: l,
-      imageListX: a,
-      imageListY: w,
-      indexZeroBase: s,
-      amountX: u,
-      amountY: p,
+      filenameGrid: n,
+      imageListX: v,
+      imageListY: s,
+      imageListGrid: u,
+      indexZeroBase: p,
+      amountX: R,
+      amountY: h,
       // Behavior
-      draggable: R,
-      swipeable: h,
-      keys: z,
+      draggable: z,
+      swipeable: g,
+      keys: L,
       keysReverse: V,
       autoplay: S,
       autoplayBehavior: T,
       playOnce: Z,
-      speed: g,
-      autoplayReverse: L,
-      dragSpeed: O,
-      dragReverse: k,
-      stopAtEdges: P,
-      inertia: b,
+      speed: A,
+      autoplayReverse: O,
+      dragSpeed: k,
+      dragReverse: P,
+      stopAtEdges: X,
+      stopAtEdgesX: Y,
+      stopAtEdgesY: b,
+      inertia: E,
       // UI Features
-      fullscreen: A,
-      magnifier: F,
-      pointerZoom: X,
-      pinchZoom: Y,
-      zoomMax: x,
-      zoomStep: B,
-      zoomControls: D,
-      zoomControlsPosition: E,
-      scrollHint: H,
-      bottomCircle: M,
-      bottomCircleOffset: G,
-      initialIconShown: N,
-      hide360Logo: j,
-      logoSrc: q,
-      imageInfo: $,
-      hints: J,
-      theme: K,
-      markerTheme: Q,
-      brandColor: U,
+      fullscreen: F,
+      magnifier: G,
+      pointerZoom: x,
+      pinchZoom: B,
+      zoomMax: D,
+      zoomStep: H,
+      zoomControls: M,
+      zoomControlsPosition: N,
+      scrollHint: j,
+      bottomCircle: q,
+      bottomCircleOffset: $,
+      initialIconShown: J,
+      hide360Logo: K,
+      logoSrc: Q,
+      imageInfo: U,
+      hints: W,
+      theme: _,
+      markerTheme: ee,
+      brandColor: oe,
       // Cloudimage CDN
-      ciToken: W,
-      ciFilters: _,
-      ciTransformation: ee,
-      cropAspectRatio: oe,
-      cropGravity: te,
+      ciToken: te,
+      ciFilters: re,
+      ciTransformation: ae,
+      cropAspectRatio: ne,
+      cropGravity: se,
       // Loading
-      lazyload: re,
+      lazyload: ie,
       // Hotspots
-      hotspots: ne,
-      hotspotTrigger: ae,
-      hotspotTimelineOnClick: se,
+      hotspots: le,
+      hotspotTrigger: me,
+      hotspotTimelineOnClick: ue,
       // Container
-      aspectRatio: ie,
+      aspectRatio: pe,
       // Event callbacks
-      onReady: le,
-      onLoad: me,
-      onSpin: ue,
-      onAutoplayStart: pe,
-      onAutoplayStop: ce,
-      onFullscreenOpen: de,
-      onFullscreenClose: fe,
-      onZoomIn: ye,
-      onZoomOut: Ce,
-      onDragStart: we,
-      onDragEnd: ve,
-      onHotspotOpen: Ie,
-      onHotspotClose: Re,
-      onProductClick: he,
-      onError: ze
+      onReady: ce,
+      onLoad: de,
+      onSpin: fe,
+      onAutoplayStart: ye,
+      onAutoplayStop: Ce,
+      onFullscreenOpen: ve,
+      onFullscreenClose: we,
+      onZoomIn: Ie,
+      onZoomOut: Re,
+      onDragStart: he,
+      onDragEnd: ze,
+      onHotspotOpen: ge,
+      onHotspotClose: Le,
+      onProductClick: Ve,
+      onNavigate: Se,
+      onError: Te
     }),
     [
       // Image source
@@ -218,37 +230,37 @@ const Xe = (d, t) => {
       m,
       y,
       l,
-      a,
-      w,
+      n,
+      v,
       s,
       u,
       p,
-      // Behavior
       R,
       h,
+      // Behavior
       z,
+      g,
+      L,
       V,
       S,
       T,
       Z,
-      g,
-      L,
+      A,
       O,
       k,
       P,
-      b,
-      // UI Features
-      A,
-      F,
       X,
       Y,
+      b,
+      E,
+      // UI Features
+      F,
+      G,
       x,
       B,
       D,
-      E,
       H,
       M,
-      G,
       N,
       j,
       q,
@@ -257,39 +269,44 @@ const Xe = (d, t) => {
       K,
       Q,
       U,
-      // Cloudimage CDN
       W,
       _,
       ee,
       oe,
+      // Cloudimage CDN
       te,
-      // Loading
       re,
-      // Hotspots
-      ne,
       ae,
+      ne,
       se,
-      // Container
+      // Loading
       ie,
-      // Event callbacks
+      // Hotspots
       le,
       me,
       ue,
+      // Container
       pe,
+      // Event callbacks
       ce,
       de,
       fe,
       ye,
       Ce,
-      we,
       ve,
+      we,
       Ie,
       Re,
       he,
-      ze
+      ze,
+      ge,
+      Le,
+      Ve,
+      Se,
+      Te
     ]
-  ), { getViewer: r } = Fe(Ve, Te);
-  return Ae(
+  ), { getViewer: r } = xe(Ze, Oe);
+  return Ge(
     t,
     () => ({
       moveLeft: (e = 1) => {
@@ -339,22 +356,22 @@ const Xe = (d, t) => {
       getViewer: () => r()
     }),
     [r]
-  ), /* @__PURE__ */ Ze(
+  ), /* @__PURE__ */ ke(
     "div",
     {
-      ref: Ve,
+      ref: Ze,
       id: C,
       className: f,
-      style: n,
-      ...Se
+      style: a,
+      ...Ae
     }
   );
-}, Ye = Pe(Xe);
-Ye.displayName = "CI360Viewer";
+}, De = Ee(Be);
+De.displayName = "CI360Viewer";
 export {
-  Ye as CI360Viewer,
-  Ye as CI360ViewerDefault,
-  Fe as useCI360,
-  Fe as useCI360Default
+  De as CI360Viewer,
+  De as CI360ViewerDefault,
+  xe as useCI360,
+  xe as useCI360Default
 };
 //# sourceMappingURL=index.js.map

@@ -76,6 +76,8 @@ export interface Hotspot {
   content?: string;
   data?: PopoverData;
   className?: string;
+  /** Scene ID to navigate to when this hotspot is clicked. */
+  navigateTo?: string;
 }
 
 /**
@@ -93,6 +95,7 @@ export interface SpinEventData {
   activeImageY: number;
   amountX: number;
   amountY: number;
+  isGridMode: boolean;
 }
 
 /**
@@ -102,6 +105,7 @@ export interface LoadEventData {
   viewerId: string;
   imagesX: number;
   imagesY: number;
+  imagesGrid?: number;
 }
 
 /**
@@ -140,6 +144,8 @@ export interface CI360Config {
   filenameY?: string | null;
   imageListX?: string | string[] | null;
   imageListY?: string | string[] | null;
+  filenameGrid?: string | null;
+  imageListGrid?: string | string[] | string[][] | null;
   indexZeroBase?: number;
   amountX?: number;
   amountY?: number;
@@ -155,6 +161,8 @@ export interface CI360Config {
   dragSpeed?: number;
   dragReverse?: boolean;
   stopAtEdges?: boolean;
+  stopAtEdgesX?: boolean | null;
+  stopAtEdgesY?: boolean | null;
   inertia?: boolean;
   fullscreen?: boolean;
   /** @deprecated Use zoomMax instead. Will be ignored. */
@@ -201,6 +209,7 @@ export interface CI360Config {
   onHotspotOpen?: (hotspotId: string) => void;
   onHotspotClose?: (hotspotId: string) => void;
   onProductClick?: (productId: string, hotspotId: string) => void;
+  onNavigate?: (targetSceneId: string) => void;
   onError?: (data: ErrorEventData) => void;
 }
 
@@ -234,6 +243,7 @@ export interface CI360ViewerInstance {
   amountX: number;
   amountY: number;
   isZoomed: boolean;
+  isGridMode: boolean;
   viewerConfig: CI360Config;
 }
 
