@@ -101,7 +101,7 @@ Add the library via CDN and create your first 360 viewer in seconds:
 
 ```html
 <!-- Add the library (CSS is auto-injected) -->
-<script src="https://scaleflex.cloudimg.io/v7/plugins/js-cloudimage-360-view/4.9.2/js-cloudimage-360-view.min.js?vh=d12bb5&func=proxy"></script>
+<script src="https://scaleflex.cloudimg.io/v7/plugins/js-cloudimage-360-view/4.9.2/js-cloudimage-360-view.min.js?vh=997be0&func=proxy"></script>
 
 <!-- Create a container with data attributes -->
 <div
@@ -125,7 +125,7 @@ Add the library via CDN and create your first 360 viewer in seconds:
 ### Option 1: CDN (Recommended for Quick Setup)
 
 ```html
-<script src="https://scaleflex.cloudimg.io/v7/plugins/js-cloudimage-360-view/4.9.2/js-cloudimage-360-view.min.js?vh=d12bb5&func=proxy"></script>
+<script src="https://scaleflex.cloudimg.io/v7/plugins/js-cloudimage-360-view/4.9.2/js-cloudimage-360-view.min.js?vh=997be0&func=proxy"></script>
 ```
 
 > **Note:** CSS is automatically injected by the script - no separate stylesheet needed.
@@ -506,7 +506,7 @@ All options can be set via JavaScript config or HTML data attributes.
 | `zoomControls` | `data-zoom-controls` | `true` | Show zoom control buttons (zoom in, zoom out, reset) |
 | `zoomControlsPosition` | `data-zoom-controls-position` | `'bottom-right'` | Position of zoom controls toolbar. Values: `'top-left'`, `'top-center'`, `'top-right'`, `'bottom-left'`, `'bottom-center'`, `'bottom-right'` |
 | `scrollHint` | `data-scroll-hint` | `true` | Show "Ctrl + scroll to zoom" hint on scroll |
-| `bottomCircle` | `data-bottom-circle` | `true` | Show 360° progress indicator |
+| `bottomCircle` | `data-bottom-circle` | `false` | Show 360° progress indicator |
 | `bottomCircleOffset` | `data-bottom-circle-offset` | `5` | Progress indicator offset (px) |
 | `initialIconShown` | `data-initial-icon` | `true` | Show 360° icon on load |
 | `lazyload` | `data-lazyload` | `true` | Enable lazy loading |
