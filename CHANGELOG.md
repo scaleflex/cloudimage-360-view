@@ -29,6 +29,20 @@ Types of changes:
 
 ---
 
+## 4.9.2 - 2026-03-20
+
+### Fixed
+
+- `window.CI360.init()` not working when loaded via `<script>` tag (class was exported instead of instance)
+- Double-slash in CDN URLs when folder path starts with `/` (e.g. `/v7//folder/`)
+- `bottomCircle` data-attribute not respecting the default value
+
+### Changed
+
+- `bottomCircle` default changed from `true` to `false` (opt-in instead of opt-out)
+
+---
+
 ## 4.9.1 - 2026-03-19
 
 ### Fixed
