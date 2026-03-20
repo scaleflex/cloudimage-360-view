@@ -29,6 +29,15 @@ Types of changes:
 
 ---
 
+## 4.9.3 - 2026-03-20
+
+### Fixed
+
+- Demo page crash caused by default export change in 4.9.2 (`new CI360()` failing)
+- Default export is now the class (for module consumers), `window.CI360` is the instance (for script tag users)
+
+---
+
 ## 4.9.2 - 2026-03-20
 
 ### Fixed
