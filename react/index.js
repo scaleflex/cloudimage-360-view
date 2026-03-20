@@ -9,7 +9,7 @@ function xe(d, t) {
     const n = d.current;
     return (async () => {
       try {
-        if (w || (w = (await import("./ci360-RrBk2Ggj.mjs")).default), !n || !l) return;
+        if (w || (w = (await import("./ci360-BFobl9uu.mjs")).default), !n || !l) return;
         n.id || (n.id = `ci360-${m.replace(/:/g, "")}`);
         const s = {
           ...t,

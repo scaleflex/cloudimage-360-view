@@ -91,7 +91,7 @@ function Pe(e) {
   return i || zi.test(e) ? Zi(e.slice(2), i ? 2 : 8) : Hi.test(e) ? xe : +e;
 }
 var Ki = ji;
-const Ee = /* @__PURE__ */ Li(Ki), S = {
+const Ee = /* @__PURE__ */ Li(Ki), Y = {
   SPIN_X: "spin-x",
   SPIN_Y: "spin-y",
   SPIN_XY: "spin-xy",
@@ -118,7 +118,7 @@ const Ee = /* @__PURE__ */ Li(Ki), S = {
   keys: !1,
   keysReverse: !1,
   autoplay: !1,
-  autoplayBehavior: S.SPIN_X,
+  autoplayBehavior: Y.SPIN_X,
   playOnce: !1,
   autoplayReverse: !1,
   pointerZoom: 0,
@@ -129,7 +129,7 @@ const Ee = /* @__PURE__ */ Li(Ki), S = {
   zoomControls: !0,
   zoomControlsPosition: "bottom-right",
   scrollHint: !0,
-  bottomCircle: !0,
+  bottomCircle: !1,
   bottomCircleOffset: 5,
   ciToken: null,
   ciFilters: null,
@@ -186,23 +186,23 @@ const Ee = /* @__PURE__ */ Li(Ki), S = {
   amountY: parseInt(A(e, "amount-y", d.amountY), 10),
   speed: parseInt(A(e, "speed", d.speed), 10),
   dragSpeed: parseInt(A(e, "drag-speed", d.dragSpeed), 10),
-  draggable: Y(e, "draggable", d.draggable),
-  swipeable: Y(e, "swipeable", d.swipeable),
-  keys: Y(e, "keys", d.keys),
-  keysReverse: Y(e, "keys-reverse", d.keysReverse),
-  autoplay: Y(e, "autoplay", d.autoplay),
+  draggable: S(e, "draggable", d.draggable),
+  swipeable: S(e, "swipeable", d.swipeable),
+  keys: S(e, "keys", d.keys),
+  keysReverse: S(e, "keys-reverse", d.keysReverse),
+  autoplay: S(e, "autoplay", d.autoplay),
   autoplayBehavior: A(e, "autoplay-behavior", d.autoplayBehavior),
-  playOnce: Y(e, "play-once", d.playOnce),
-  autoplayReverse: Y(e, "autoplay-reverse", d.autoplayReverse),
+  playOnce: S(e, "play-once", d.playOnce),
+  autoplayReverse: S(e, "autoplay-reverse", d.autoplayReverse),
   pointerZoom: parseFloat(A(e, "pointer-zoom", d.pointerZoom)),
   pointerZoomTrigger: A(e, "pointer-zoom-trigger", d.pointerZoomTrigger),
-  fullscreen: Y(e, "fullscreen") || Y(e, "full-screen", d.fullscreen),
+  fullscreen: S(e, "fullscreen") || S(e, "full-screen", d.fullscreen),
   magnifier: A(e, "magnifier", null) != null ? parseFloat(A(e, "magnifier", null)) : null,
   zoomMax: parseFloat(A(e, "zoom-max", d.zoomMax)),
   zoomStep: parseFloat(A(e, "zoom-step", d.zoomStep)),
-  zoomControls: !ft(e, "zoom-controls"),
+  zoomControls: !Et(e, "zoom-controls"),
   zoomControlsPosition: A(e, "zoom-controls-position", d.zoomControlsPosition),
-  scrollHint: !ft(e, "scroll-hint"),
+  scrollHint: !Et(e, "scroll-hint"),
   bottomCircleOffset: parseInt(
     A(e, "bottom-circle-offset", d.bottomCircleOffset),
     10
@@ -210,24 +210,24 @@ const Ee = /* @__PURE__ */ Li(Ki), S = {
   ciToken: A(e, "responsive", d.ciToken),
   ciFilters: A(e, "filters", d.ciFilters),
   ciTransformation: A(e, "transformation", d.ciTransformation),
-  lazyload: Y(e, "lazyload", d.lazyload),
-  dragReverse: Y(e, "drag-reverse", d.dragReverse),
-  stopAtEdges: Y(e, "stop-at-edges", d.stopAtEdges),
-  stopAtEdgesX: A(e, "stop-at-edges-x", null) !== null ? Y(e, "stop-at-edges-x", null) : null,
-  stopAtEdgesY: A(e, "stop-at-edges-y", null) !== null ? Y(e, "stop-at-edges-y", null) : null,
-  imageInfo: Y(e, "info", d.imageInfo),
-  initialIconShown: !ft(e, "initial-icon"),
-  bottomCircle: !ft(e, "bottom-circle"),
-  hide360Logo: Y(e, "hide-360-logo", d.hide360Logo),
+  lazyload: S(e, "lazyload", d.lazyload),
+  dragReverse: S(e, "drag-reverse", d.dragReverse),
+  stopAtEdges: S(e, "stop-at-edges", d.stopAtEdges),
+  stopAtEdgesX: A(e, "stop-at-edges-x", null) !== null ? S(e, "stop-at-edges-x", null) : null,
+  stopAtEdgesY: A(e, "stop-at-edges-y", null) !== null ? S(e, "stop-at-edges-y", null) : null,
+  imageInfo: S(e, "info", d.imageInfo),
+  initialIconShown: !Et(e, "initial-icon"),
+  bottomCircle: S(e, "bottom-circle", d.bottomCircle),
+  hide360Logo: S(e, "hide-360-logo", d.hide360Logo),
   logoSrc: A(e, "logo-src", d.logoSrc),
-  inertia: Y(e, "inertia", d.inertia),
-  pinchZoom: Y(e, "pinch-zoom", d.pinchZoom),
-  hints: !ft(e, "hints"),
+  inertia: S(e, "inertia", d.inertia),
+  pinchZoom: S(e, "pinch-zoom", d.pinchZoom),
+  hints: !Et(e, "hints"),
   theme: A(e, "theme", d.theme),
   markerTheme: A(e, "marker-theme", d.markerTheme),
   brandColor: A(e, "brand-color", d.brandColor),
   hotspotTrigger: A(e, "hotspot-trigger", d.hotspotTrigger),
-  hotspotTimelineOnClick: !ft(e, "hotspot-timeline-on-click"),
+  hotspotTimelineOnClick: !Et(e, "hotspot-timeline-on-click"),
   aspectRatio: A(e, "aspect-ratio", d.aspectRatio),
   cropAspectRatio: A(e, "crop-aspect-ratio", d.cropAspectRatio),
   cropGravity: A(e, "crop-gravity", d.cropGravity)
@@ -318,11 +318,11 @@ const Ee = /* @__PURE__ */ Li(Ki), S = {
   onProductClick: e.onProductClick ?? d.onProductClick,
   onNavigate: e.onNavigate ?? d.onNavigate,
   onError: e.onError ?? d.onError
-}), A = (e, t, i) => e.getAttribute(t) || e.getAttribute(`data-${t}`) || i, Y = (e, t, i) => {
+}), A = (e, t, i) => e.getAttribute(t) || e.getAttribute(`data-${t}`) || i, S = (e, t, i) => {
   if (!(e.hasAttribute(t) || e.hasAttribute(`data-${t}`))) return i;
   const s = A(e, t, null);
   return s !== "false" && s !== "0";
-}, ft = (e, t) => A(e, t, null) === "false", ho = (e = 1) => {
+}, Et = (e, t) => A(e, t, null) === "false", ho = (e = 1) => {
   const t = Math.round(window.devicePixelRatio || 1);
   return parseInt(e) * t;
 }, co = (e, t, i) => {
@@ -330,7 +330,8 @@ const Ee = /* @__PURE__ */ Li(Ki), S = {
     if (new URL(e).origin.includes("cloudimg")) return e;
   } catch {
   }
-  return `https://${t}.cloudimg.io/${i}${e}`;
+  const o = e.startsWith("/") ? e.slice(1) : e;
+  return `https://${t}.cloudimg.io/${i}${o}`;
 }, ke = (e, t) => e ? `ar=${e}&gravity=${t || "auto"}` : "", uo = ({ ciTransformation: e, responsiveWidth: t, ciFilters: i }) => {
   const o = `width=${t}`, s = e || o, n = i ? `&f=${i}` : "";
   return `${s}${n}`;
@@ -784,14 +785,14 @@ const Ee = /* @__PURE__ */ Li(Ki), S = {
   e ? t() : i();
 }, $o = ({ autoplayBehavior: e, spinY: t, reversed: i, loopTriggers: o }) => {
   switch (e) {
-    case S.SPIN_XY:
-    case S.SPIN_YX:
+    case Y.SPIN_XY:
+    case Y.SPIN_YX:
       t ? ze(i, o) : Ze(i, o);
       break;
-    case S.SPIN_Y:
+    case Y.SPIN_Y:
       ze(i, o);
       break;
-    case S.SPIN_X:
+    case Y.SPIN_X:
     default:
       Ze(i, o);
   }
@@ -810,21 +811,21 @@ const Ee = /* @__PURE__ */ Li(Ki), S = {
   };
   if (r)
     switch (e) {
-      case S.SPIN_X:
+      case Y.SPIN_X:
         return a(t, o);
-      case S.SPIN_Y:
+      case Y.SPIN_Y:
         return a(i, s);
-      case S.SPIN_XY:
-      case S.SPIN_YX:
+      case Y.SPIN_XY:
+      case Y.SPIN_YX:
       default:
         return a(t, o) && a(i, s);
     }
   switch (e) {
-    case S.SPIN_XY:
-    case S.SPIN_Y:
+    case Y.SPIN_XY:
+    case Y.SPIN_Y:
       return a(i, s);
-    case S.SPIN_X:
-    case S.SPIN_YX:
+    case Y.SPIN_X:
+    case Y.SPIN_YX:
     default:
       return a(t, o);
   }
@@ -840,18 +841,18 @@ const Ee = /* @__PURE__ */ Li(Ki), S = {
 }) => {
   if (a) return !1;
   const l = t === (n ? 0 : o - 1), c = i === (n ? 0 : s - 1);
-  return e === S.SPIN_XY || e === S.SPIN_YX ? r === "x" && l || r === "y" && c : !1;
+  return e === Y.SPIN_XY || e === Y.SPIN_YX ? r === "x" && l || r === "y" && c : !1;
 }, Jo = (e, t, i) => {
   if (!i) return "x";
   if (!t) return "y";
   switch (e) {
-    case S.SPIN_XY:
+    case Y.SPIN_XY:
       return "x";
-    case S.SPIN_YX:
+    case Y.SPIN_YX:
       return "y";
-    case S.SPIN_Y:
+    case Y.SPIN_Y:
       return "y";
-    case S.SPIN_X:
+    case Y.SPIN_X:
     default:
       return "x";
   }
@@ -1425,19 +1426,19 @@ function Ps(e) {
     `<div class="ci360-popper-image-wrapper"><img class="ci360-popper-image" src="${Tt(e.image)}" alt="${Tt(e.title || "")}"></div>`
   );
   const i = [];
-  if (e.title && i.push(`<h3 class="ci360-popper-title">${gt(e.title)}</h3>`), e.originalPrice || e.price) {
+  if (e.title && i.push(`<h3 class="ci360-popper-title">${ft(e.title)}</h3>`), e.originalPrice || e.price) {
     let o = "";
-    e.originalPrice && (o += `<span class="ci360-popper-original-price">${gt(e.originalPrice)}</span>`), e.price && (o += `<span class="ci360-popper-price">${gt(e.price)}</span>`), i.push(`<div class="ci360-popper-price-row">${o}</div>`);
+    e.originalPrice && (o += `<span class="ci360-popper-original-price">${ft(e.originalPrice)}</span>`), e.price && (o += `<span class="ci360-popper-price">${ft(e.price)}</span>`), i.push(`<div class="ci360-popper-price-row">${o}</div>`);
   }
-  if (e.description && i.push(`<p class="ci360-popper-description">${gt(e.description)}</p>`), e.url && Es(e.url)) {
+  if (e.description && i.push(`<p class="ci360-popper-description">${ft(e.description)}</p>`), e.url && Es(e.url)) {
     const o = e.ctaText || "View details", s = e.id ? ` data-product-id="${Tt(e.id)}"` : "";
     i.push(
-      `<a class="ci360-popper-cta" href="${Tt(e.url)}" target="_top"${s}>${gt(String(o))}</a>`
+      `<a class="ci360-popper-cta" href="${Tt(e.url)}" target="_top"${s}>${ft(String(o))}</a>`
     );
   } else if (e.id) {
     const o = e.ctaText || "View details";
     i.push(
-      `<button class="ci360-popper-cta" data-product-id="${Tt(e.id)}">${gt(String(o))}</button>`
+      `<button class="ci360-popper-cta" data-product-id="${Tt(e.id)}">${ft(String(o))}</button>`
     );
   }
   return i.length > 0 && t.push(`<div class="ci360-popper-body">${i.join("")}</div>`), t.join("");
@@ -1445,7 +1446,7 @@ function Ps(e) {
 function de(e) {
   return e.content ? e.content : e.data ? Ps(e.data) : "";
 }
-function gt(e) {
+function ft(e) {
   return e.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 }
 function Tt(e) {
@@ -1455,10 +1456,10 @@ function Es(e) {
   const t = e.replace(/[\s\x00-\x1f]/g, "");
   return /^https?:\/\//i.test(t) || /^\/(?!\/)/.test(t) || /^#/.test(t);
 }
-var R = "top", _ = "bottom", F = "right", z = "left", fe = "auto", Lt = [R, _, F, z], vt = "start", St = "end", Ts = "clippingParents", ai = "viewport", At = "popper", As = "reference", Ne = /* @__PURE__ */ Lt.reduce(function(e, t) {
-  return e.concat([t + "-" + vt, t + "-" + St]);
+var R = "top", _ = "bottom", F = "right", z = "left", fe = "auto", Lt = [R, _, F, z], gt = "start", St = "end", Ts = "clippingParents", ai = "viewport", At = "popper", As = "reference", Ne = /* @__PURE__ */ Lt.reduce(function(e, t) {
+  return e.concat([t + "-" + gt, t + "-" + St]);
 }, []), li = /* @__PURE__ */ [].concat(Lt, [fe]).reduce(function(e, t) {
-  return e.concat([t, t + "-" + vt, t + "-" + St]);
+  return e.concat([t, t + "-" + gt, t + "-" + St]);
 }, []), ks = "beforeRead", Xs = "read", Ss = "afterRead", Ys = "beforeMain", Ls = "main", Ms = "afterMain", Os = "beforeWrite", Hs = "write", Rs = "afterWrite", zs = [ks, Xs, Ss, Ys, Ls, Ms, Os, Hs, Rs];
 function j(e) {
   return e ? (e.nodeName || "").toLowerCase() : null;
@@ -1531,7 +1532,7 @@ const Bs = {
 function V(e) {
   return e.split("-")[0];
 }
-var lt = Math.max, Jt = Math.min, yt = Math.round;
+var lt = Math.max, Jt = Math.min, vt = Math.round;
 function pe() {
   var e = navigator.userAgentData;
   return e != null && e.brands && Array.isArray(e.brands) ? e.brands.map(function(t) {
@@ -1541,10 +1542,10 @@ function pe() {
 function hi() {
   return !/^((?!chrome|android).)*safari/i.test(pe());
 }
-function bt(e, t, i) {
+function yt(e, t, i) {
   t === void 0 && (t = !1), i === void 0 && (i = !1);
   var o = e.getBoundingClientRect(), s = 1, n = 1;
-  t && G(e) && (s = e.offsetWidth > 0 && yt(o.width) / e.offsetWidth || 1, n = e.offsetHeight > 0 && yt(o.height) / e.offsetHeight || 1);
+  t && G(e) && (s = e.offsetWidth > 0 && vt(o.width) / e.offsetWidth || 1, n = e.offsetHeight > 0 && vt(o.height) / e.offsetHeight || 1);
   var r = ht(e) ? D(e) : window, a = r.visualViewport, l = !hi() && i, c = (o.left + (l && a ? a.offsetLeft : 0)) / s, h = (o.top + (l && a ? a.offsetTop : 0)) / n, u = o.width / s, m = o.height / n;
   return {
     width: u,
@@ -1558,7 +1559,7 @@ function bt(e, t, i) {
   };
 }
 function ve(e) {
-  var t = bt(e), i = e.offsetWidth, o = e.offsetHeight;
+  var t = yt(e), i = e.offsetWidth, o = e.offsetHeight;
   return Math.abs(t.width - i) <= 1 && (i = t.width), Math.abs(t.height - o) <= 1 && (o = t.height), {
     x: e.offsetLeft,
     y: e.offsetTop,
@@ -1680,7 +1681,7 @@ const js = {
   requires: ["popperOffsets"],
   requiresIfExists: ["preventOverflow"]
 };
-function wt(e) {
+function bt(e) {
   return e.split("-")[1];
 }
 var Us = {
@@ -1692,8 +1693,8 @@ var Us = {
 function $s(e, t) {
   var i = e.x, o = e.y, s = t.devicePixelRatio || 1;
   return {
-    x: yt(i * s) / s || 0,
-    y: yt(o * s) / s || 0
+    x: vt(i * s) / s || 0,
+    y: vt(o * s) / s || 0
   };
 }
 function Ve(e) {
@@ -1743,7 +1744,7 @@ function Ve(e) {
 function Ks(e) {
   var t = e.state, i = e.options, o = i.gpuAcceleration, s = o === void 0 ? !0 : o, n = i.adaptive, r = n === void 0 ? !0 : n, a = i.roundOffsets, l = a === void 0 ? !0 : a, c = {
     placement: V(t.placement),
-    variation: wt(t.placement),
+    variation: bt(t.placement),
     popper: t.elements.popper,
     popperRect: t.rects.popper,
     gpuAcceleration: s,
@@ -1820,7 +1821,7 @@ function be(e) {
   };
 }
 function we(e) {
-  return bt(ot(e)).left + be(e).scrollLeft;
+  return yt(ot(e)).left + be(e).scrollLeft;
 }
 function on(e, t) {
   var i = D(e), o = ot(e), s = i.visualViewport, n = o.clientWidth, r = o.clientHeight, a = 0, l = 0;
@@ -1870,7 +1871,7 @@ function me(e) {
   });
 }
 function nn(e, t) {
-  var i = bt(e, !1, t === "fixed");
+  var i = yt(e, !1, t === "fixed");
   return i.top = i.top + e.clientTop, i.left = i.left + e.clientLeft, i.bottom = i.top + e.clientHeight, i.right = i.left + e.clientWidth, i.width = e.clientWidth, i.height = e.clientHeight, i.x = i.left, i.y = i.top, i;
 }
 function Ue(e, t, i) {
@@ -1890,7 +1891,7 @@ function an(e, t, i, o) {
   return a.width = a.right - a.left, a.height = a.bottom - a.top, a.x = a.left, a.y = a.top, a;
 }
 function fi(e) {
-  var t = e.reference, i = e.element, o = e.placement, s = o ? V(o) : null, n = o ? wt(o) : null, r = t.x + t.width / 2 - i.width / 2, a = t.y + t.height / 2 - i.height / 2, l;
+  var t = e.reference, i = e.element, o = e.placement, s = o ? V(o) : null, n = o ? bt(o) : null, r = t.x + t.width / 2 - i.width / 2, a = t.y + t.height / 2 - i.height / 2, l;
   switch (s) {
     case R:
       l = {
@@ -1926,7 +1927,7 @@ function fi(e) {
   if (c != null) {
     var h = c === "y" ? "height" : "width";
     switch (n) {
-      case vt:
+      case gt:
         l[c] = l[c] - (t[h] / 2 - i[h] / 2);
         break;
       case St:
@@ -1938,7 +1939,7 @@ function fi(e) {
 }
 function Yt(e, t) {
   t === void 0 && (t = {});
-  var i = t, o = i.placement, s = o === void 0 ? e.placement : o, n = i.strategy, r = n === void 0 ? e.strategy : n, a = i.boundary, l = a === void 0 ? Ts : a, c = i.rootBoundary, h = c === void 0 ? ai : c, u = i.elementContext, m = u === void 0 ? At : u, p = i.altBoundary, C = p === void 0 ? !1 : p, v = i.padding, b = v === void 0 ? 0 : v, x = ui(typeof b != "number" ? b : pi(b, Lt)), P = m === At ? As : At, w = e.rects.popper, g = e.elements[C ? P : m], E = an(ht(g) ? g : g.contextElement || ot(e.elements.popper), l, h, r), f = bt(e.elements.reference), y = fi({
+  var i = t, o = i.placement, s = o === void 0 ? e.placement : o, n = i.strategy, r = n === void 0 ? e.strategy : n, a = i.boundary, l = a === void 0 ? Ts : a, c = i.rootBoundary, h = c === void 0 ? ai : c, u = i.elementContext, m = u === void 0 ? At : u, p = i.altBoundary, C = p === void 0 ? !1 : p, v = i.padding, b = v === void 0 ? 0 : v, x = ui(typeof b != "number" ? b : pi(b, Lt)), P = m === At ? As : At, w = e.rects.popper, g = e.elements[C ? P : m], E = an(ht(g) ? g : g.contextElement || ot(e.elements.popper), l, h, r), f = yt(e.elements.reference), y = fi({
     reference: f,
     element: w,
     placement: s
@@ -1959,8 +1960,8 @@ function Yt(e, t) {
 }
 function ln(e, t) {
   t === void 0 && (t = {});
-  var i = t, o = i.placement, s = i.boundary, n = i.rootBoundary, r = i.padding, a = i.flipVariations, l = i.allowedAutoPlacements, c = l === void 0 ? li : l, h = wt(o), u = h ? a ? Ne : Ne.filter(function(C) {
-    return wt(C) === h;
+  var i = t, o = i.placement, s = i.boundary, n = i.rootBoundary, r = i.padding, a = i.flipVariations, l = i.allowedAutoPlacements, c = l === void 0 ? li : l, h = bt(o), u = h ? a ? Ne : Ne.filter(function(C) {
+    return bt(C) === h;
   }) : Lt, m = u.filter(function(C) {
     return c.indexOf(C) >= 0;
   });
@@ -1996,7 +1997,7 @@ function cn(e) {
         allowedAutoPlacements: v
       }) : W);
     }, []), E = t.rects.reference, f = t.rects.popper, y = /* @__PURE__ */ new Map(), I = !0, T = g[0], k = 0; k < g.length; k++) {
-      var X = g[k], O = V(X), M = wt(X) === vt, U = [R, _].indexOf(O) >= 0, $ = U ? "width" : "height", H = Yt(t, {
+      var X = g[k], O = V(X), M = bt(X) === gt, U = [R, _].indexOf(O) >= 0, $ = U ? "width" : "height", H = Yt(t, {
         placement: X,
         boundary: h,
         rootBoundary: u,
@@ -2018,8 +2019,8 @@ function cn(e) {
         var nt = g.find(function(pt) {
           var q = y.get(pt);
           if (q)
-            return q.slice(0, W).every(function(Ct) {
-              return Ct;
+            return q.slice(0, W).every(function(wt) {
+              return wt;
             });
         });
         if (nt)
@@ -2129,7 +2130,7 @@ function wn(e) {
     rootBoundary: c,
     padding: u,
     altBoundary: h
-  }), x = V(t.placement), P = wt(t.placement), w = !P, g = ye(x), E = bn(g), f = t.modifiersData.popperOffsets, y = t.rects.reference, I = t.rects.popper, T = typeof v == "function" ? v(Object.assign({}, t.rects, {
+  }), x = V(t.placement), P = bt(t.placement), w = !P, g = ye(x), E = bn(g), f = t.modifiersData.popperOffsets, y = t.rects.reference, I = t.rects.popper, T = typeof v == "function" ? v(Object.assign({}, t.rects, {
     placement: t.placement
   })) : v, k = typeof T == "number" ? {
     mainAxis: T,
@@ -2143,14 +2144,14 @@ function wn(e) {
   };
   if (f) {
     if (n) {
-      var M, U = g === "y" ? R : z, $ = g === "y" ? _ : F, H = g === "y" ? "height" : "width", Z = f[g], ct = Z + b[U], K = Z - b[$], dt = p ? -I[H] / 2 : 0, ut = P === vt ? y[H] : I[H], st = P === vt ? -I[H] : -y[H], et = t.elements.arrow, it = p && et ? ve(et) : {
+      var M, U = g === "y" ? R : z, $ = g === "y" ? _ : F, H = g === "y" ? "height" : "width", Z = f[g], ct = Z + b[U], K = Z - b[$], dt = p ? -I[H] / 2 : 0, ut = P === gt ? y[H] : I[H], st = P === gt ? -I[H] : -y[H], et = t.elements.arrow, it = p && et ? ve(et) : {
         width: 0,
         height: 0
-      }, W = t.modifiersData["arrow#persistent"] ? t.modifiersData["arrow#persistent"].padding : di(), nt = W[U], pt = W[$], q = kt(0, y[H], it[H]), Ct = w ? y[H] / 2 - dt - q - nt - k.mainAxis : ut - q - nt - k.mainAxis, te = w ? -y[H] / 2 + dt + q + pt + k.mainAxis : st + q + pt + k.mainAxis, It = t.elements.arrow && Mt(t.elements.arrow), ee = It ? g === "y" ? It.clientTop || 0 : It.clientLeft || 0 : 0, Ot = (M = X == null ? void 0 : X[g]) != null ? M : 0, ie = Z + Ct - Ot - ee, oe = Z + te - Ot, Ht = kt(p ? Jt(ct, ie) : ct, Z, p ? lt(K, oe) : K);
+      }, W = t.modifiersData["arrow#persistent"] ? t.modifiersData["arrow#persistent"].padding : di(), nt = W[U], pt = W[$], q = kt(0, y[H], it[H]), wt = w ? y[H] / 2 - dt - q - nt - k.mainAxis : ut - q - nt - k.mainAxis, te = w ? -y[H] / 2 + dt + q + pt + k.mainAxis : st + q + pt + k.mainAxis, Ct = t.elements.arrow && Mt(t.elements.arrow), ee = Ct ? g === "y" ? Ct.clientTop || 0 : Ct.clientLeft || 0 : 0, Ot = (M = X == null ? void 0 : X[g]) != null ? M : 0, ie = Z + wt - Ot - ee, oe = Z + te - Ot, Ht = kt(p ? Jt(ct, ie) : ct, Z, p ? lt(K, oe) : K);
       f[g] = Ht, O[g] = Ht - Z;
     }
     if (a) {
-      var xt, Rt = g === "x" ? R : z, zt = g === "x" ? _ : F, J = f[E], mt = E === "y" ? "height" : "width", Zt = J + b[Rt], Dt = J - b[zt], Pt = [R, z].indexOf(x) !== -1, Bt = (xt = X == null ? void 0 : X[E]) != null ? xt : 0, Gt = Pt ? Zt : J - y[mt] - I[mt] - Bt + k.altAxis, _t = Pt ? J + y[mt] + I[mt] - Bt - k.altAxis : Dt, Ft = p && Pt ? Fs(Gt, J, _t) : kt(p ? Gt : Zt, J, p ? _t : Dt);
+      var It, Rt = g === "x" ? R : z, zt = g === "x" ? _ : F, J = f[E], mt = E === "y" ? "height" : "width", Zt = J + b[Rt], Dt = J - b[zt], xt = [R, z].indexOf(x) !== -1, Bt = (It = X == null ? void 0 : X[E]) != null ? It : 0, Gt = xt ? Zt : J - y[mt] - I[mt] - Bt + k.altAxis, _t = xt ? J + y[mt] + I[mt] - Bt - k.altAxis : Dt, Ft = p && xt ? Fs(Gt, J, _t) : kt(p ? Gt : Zt, J, p ? _t : Dt);
       f[E] = Ft, O[E] = Ft - J;
     }
     t.modifiersData[o] = O;
@@ -2173,12 +2174,12 @@ function xn(e) {
   return e === D(e) || !G(e) ? be(e) : In(e);
 }
 function Pn(e) {
-  var t = e.getBoundingClientRect(), i = yt(t.width) / e.offsetWidth || 1, o = yt(t.height) / e.offsetHeight || 1;
+  var t = e.getBoundingClientRect(), i = vt(t.width) / e.offsetWidth || 1, o = vt(t.height) / e.offsetHeight || 1;
   return i !== 1 || o !== 1;
 }
 function En(e, t, i) {
   i === void 0 && (i = !1);
-  var o = G(t), s = G(t) && Pn(t), n = ot(t), r = bt(e, s, i), a = {
+  var o = G(t), s = G(t) && Pn(t), n = ot(t), r = yt(e, s, i), a = {
     scrollLeft: 0,
     scrollTop: 0
   }, l = {
@@ -2186,7 +2187,7 @@ function En(e, t, i) {
     y: 0
   };
   return (o || !o && !i) && ((j(t) !== "body" || // https://github.com/popperjs/popper-core/issues/1078
-  Ce(n)) && (a = xn(t)), G(t) ? (l = bt(t, !0), l.x += t.clientLeft, l.y += t.clientTop) : n && (l.x = we(n))), {
+  Ce(n)) && (a = xn(t)), G(t) ? (l = yt(t, !0), l.x += t.clientLeft, l.y += t.clientTop) : n && (l.x = we(n))), {
     x: r.left + a.scrollLeft - l.x,
     y: r.top + a.scrollTop - l.y,
     width: r.width,
@@ -3264,15 +3265,15 @@ class ti {
       imageInfo: nt = "black",
       initialIconShown: pt,
       bottomCircle: q,
-      hotspots: Ct,
+      hotspots: wt,
       hotspotTrigger: te = "hover",
-      dragReverse: It,
+      dragReverse: Ct,
       hide360Logo: ee,
       logoSrc: Ot,
       inertia: ie,
       pinchZoom: oe,
       hints: Ht,
-      theme: xt,
+      theme: It,
       markerTheme: Rt,
       brandColor: zt,
       hotspotTimelineOnClick: J = !0,
@@ -3280,7 +3281,7 @@ class ti {
       cropAspectRatio: Zt,
       cropGravity: Dt,
       // Event callbacks
-      onReady: Pt,
+      onReady: xt,
       onLoad: Bt,
       onSpin: Gt,
       onAutoplayStart: _t,
@@ -3300,7 +3301,7 @@ class ti {
     let rt = Ut(m, []);
     rt.length && Array.isArray(rt[0]) && (rt = rt.flat()), this.isGridMode = !!(c || rt.length);
     const Ai = s.zoomMax === 5 && O > 1 ? Math.min(O, 5) : M || 5;
-    if (this.viewerConfig = s, this.amountX = ne.length || C, this.amountY = re.length || v, this.allowSpinX = !!this.amountX, this.allowSpinY = !!this.amountY, this.isGridMode && (this.allowSpinX = !0, this.allowSpinY = !0), this.orientation = this.allowSpinX ? L.X : L.Y, this.activeImageX = T ? this.amountX - 1 : 0, this.activeImageY = T ? this.amountY - 1 : 0, this.bottomCircleOffset = g, this.autoplay = E, this.autoplayBehavior = f, this.playOnce = y, this.speed = I, this.autoplayReverse = T, this.fullscreen = k, this.zoomMax = Ai, this.zoomStep = U || 0.5, this.zoomControls = $ ?? !0, this.zoomControlsPosition = H || "bottom-left", this.scrollHint = Z ?? !0, this.dragSpeed = Math.max(st, so), this.stopAtEdges = et, this.stopAtEdgesX = it ?? et, this.stopAtEdgesY = W ?? et, this.ciParams = se, this.apiVersion = r, this.keysReverse = w, this.info = nt, this.keys = P, this.innerBox = this.innerBox ?? Eo(this.container), this.container.style.aspectRatio = mt || "", this.initialIconShown = pt, this.bottomCircle = q, this.spinDirection = Jo(this.autoplayBehavior, this.allowSpinX, this.allowSpinY), this.dragReverse = It, this.hotspots = Ct, this.hotspotTrigger = te, this.onHotspotOpen = Ii, this.onHotspotClose = xi, this.onProductClick = Pi, this.onNavigate = Ei, this.hide360Logo = ee, this.logoSrc = Ot, this.inertia = ie, this.pinchZoom = oe, this.hints = Ht, this.hotspotTimelineOnClick = J, xt === "dark" ? this.container.classList.add("ci360-theme-dark") : xt === "light" && this.container.classList.remove("ci360-theme-dark"), this.container.classList.remove("ci360-hotspot-marker-inverted", "ci360-hotspot-marker-brand"), Rt === "inverted" ? this.container.classList.add("ci360-hotspot-marker-inverted") : Rt === "brand" && (this.container.classList.add("ci360-hotspot-marker-brand"), zt && this.container.style.setProperty("--ci360-hotspot-brand-color", zt)), this.onReady = Pt, this.onLoad = Bt, this.onSpin = Gt, this.onAutoplayStart = _t, this.onAutoplayStop = Ft, this.onFullscreenOpen = gi, this.onFullscreenClose = vi, this.onZoomIn = yi, this.onZoomOut = bi, this.onDragStart = wi, this.onDragEnd = Ci, this.onError = Ti, this.srcXConfig = {
+    if (this.viewerConfig = s, this.amountX = ne.length || C, this.amountY = re.length || v, this.allowSpinX = !!this.amountX, this.allowSpinY = !!this.amountY, this.isGridMode && (this.allowSpinX = !0, this.allowSpinY = !0), this.orientation = this.allowSpinX ? L.X : L.Y, this.activeImageX = T ? this.amountX - 1 : 0, this.activeImageY = T ? this.amountY - 1 : 0, this.bottomCircleOffset = g, this.autoplay = E, this.autoplayBehavior = f, this.playOnce = y, this.speed = I, this.autoplayReverse = T, this.fullscreen = k, this.zoomMax = Ai, this.zoomStep = U || 0.5, this.zoomControls = $ ?? !0, this.zoomControlsPosition = H || "bottom-left", this.scrollHint = Z ?? !0, this.dragSpeed = Math.max(st, so), this.stopAtEdges = et, this.stopAtEdgesX = it ?? et, this.stopAtEdgesY = W ?? et, this.ciParams = se, this.apiVersion = r, this.keysReverse = w, this.info = nt, this.keys = P, this.innerBox = this.innerBox ?? Eo(this.container), this.container.style.aspectRatio = mt || "", this.initialIconShown = pt, this.bottomCircle = q, this.spinDirection = Jo(this.autoplayBehavior, this.allowSpinX, this.allowSpinY), this.dragReverse = Ct, this.hotspots = wt, this.hotspotTrigger = te, this.onHotspotOpen = Ii, this.onHotspotClose = xi, this.onProductClick = Pi, this.onNavigate = Ei, this.hide360Logo = ee, this.logoSrc = Ot, this.inertia = ie, this.pinchZoom = oe, this.hints = Ht, this.hotspotTimelineOnClick = J, It === "dark" ? this.container.classList.add("ci360-theme-dark") : It === "light" && this.container.classList.remove("ci360-theme-dark"), this.container.classList.remove("ci360-hotspot-marker-inverted", "ci360-hotspot-marker-brand"), Rt === "inverted" ? this.container.classList.add("ci360-hotspot-marker-inverted") : Rt === "brand" && (this.container.classList.add("ci360-hotspot-marker-brand"), zt && this.container.style.setProperty("--ci360-hotspot-brand-color", zt)), this.onReady = xt, this.onLoad = Bt, this.onSpin = Gt, this.onAutoplayStart = _t, this.onAutoplayStop = Ft, this.onFullscreenOpen = gi, this.onFullscreenClose = vi, this.onZoomIn = yi, this.onZoomOut = bi, this.onDragStart = wi, this.onDragEnd = Ci, this.onError = Ti, this.srcXConfig = {
       folder: n,
       filename: a,
       imageList: ne,
@@ -3336,9 +3337,9 @@ class ti {
     }, o && this.removeEvents(), this.attachEvents(b, x, P), o) return;
     const ae = this.container.offsetWidth;
     if (this.isGridMode) {
-      const Et = rt.length ? null : at(this.srcGridConfig, ae), Nt = (Wt) => {
+      const Pt = rt.length ? null : at(this.srcGridConfig, ae), Nt = (Wt) => {
         Se({
-          cdnPath: Et,
+          cdnPath: Pt,
           config: this.srcGridConfig,
           onImageLoad: (Q, B) => {
             this.pushImageToSet(Q, B, "grid"), this.updatePercentageInLoader(this.calculatePercentage());
@@ -3350,11 +3351,11 @@ class ti {
           onError: (Q) => this.emit("onError", Q)
         });
       };
-      he(Et, this.srcGridConfig, Nt);
+      he(Pt, this.srcGridConfig, Nt);
     } else {
-      const Et = this.allowSpinX && !ne.length ? at(this.srcXConfig, ae) : null, Nt = this.allowSpinY && !re.length ? at(this.srcYConfig, ae) : null, Wt = (Q) => {
+      const Pt = this.allowSpinX && !ne.length ? at(this.srcXConfig, ae) : null, Nt = this.allowSpinY && !re.length ? at(this.srcYConfig, ae) : null, Wt = (Q) => {
         Xe({
-          cdnPathX: Et,
+          cdnPathX: Pt,
           cdnPathY: Nt,
           configX: this.srcXConfig,
           configY: this.srcYConfig,
@@ -3364,7 +3365,7 @@ class ti {
           onError: (B) => this.emit("onError", B)
         });
       };
-      this.allowSpinX ? he(Et, this.srcXConfig, Wt) : this.allowSpinY && he(Nt, this.srcYConfig, Wt);
+      this.allowSpinX ? he(Pt, this.srcXConfig, Wt) : this.allowSpinY && he(Nt, this.srcYConfig, Wt);
     }
   }
 }
@@ -3460,4 +3461,4 @@ class Rn {
 export {
   Rn as default
 };
-//# sourceMappingURL=ci360-RrBk2Ggj.mjs.map
+//# sourceMappingURL=ci360-BFobl9uu.mjs.map
