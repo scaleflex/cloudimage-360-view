@@ -78,6 +78,8 @@ export interface Hotspot {
   className?: string;
   /** Scene ID to navigate to when this hotspot is clicked. */
   navigateTo?: string;
+  /** Rotation angle (degrees) for the navigation arrow icon. */
+  arrowDirection?: number;
 }
 
 /**

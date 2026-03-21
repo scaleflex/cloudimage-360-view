@@ -9,51 +9,51 @@ var ii = "Expected a function", xe = NaN, Mi = "[object Symbol]", Oi = /^\s+|\s+
   return Gi.Date.now();
 };
 function Vi(e, t, i) {
-  var o, s, n, r, a, l, c = 0, h = !1, u = !1, m = !0;
+  var o, s, n, r, a, l, c = 0, h = !1, u = !1, f = !0;
   if (typeof e != "function")
     throw new TypeError(ii);
-  t = Pe(t) || 0, Kt(i) && (h = !!i.leading, u = "maxWait" in i, n = u ? Ni(Pe(i.maxWait) || 0, t) : n, m = "trailing" in i ? !!i.trailing : m);
-  function p(f) {
-    var y = o, I = s;
-    return o = s = void 0, c = f, r = e.apply(I, y), r;
+  t = Pe(t) || 0, Kt(i) && (h = !!i.leading, u = "maxWait" in i, n = u ? Ni(Pe(i.maxWait) || 0, t) : n, f = "trailing" in i ? !!i.trailing : f);
+  function p(m) {
+    var y = o, C = s;
+    return o = s = void 0, c = m, r = e.apply(C, y), r;
   }
-  function C(f) {
-    return c = f, a = setTimeout(x, t), h ? p(f) : r;
+  function I(m) {
+    return c = m, a = setTimeout(x, t), h ? p(m) : r;
   }
-  function v(f) {
-    var y = f - l, I = f - c, T = t - y;
-    return u ? Wi(T, n - I) : T;
+  function g(m) {
+    var y = m - l, C = m - c, T = t - y;
+    return u ? Wi(T, n - C) : T;
   }
-  function b(f) {
-    var y = f - l, I = f - c;
-    return l === void 0 || y >= t || y < 0 || u && I >= n;
+  function b(m) {
+    var y = m - l, C = m - c;
+    return l === void 0 || y >= t || y < 0 || u && C >= n;
   }
   function x() {
-    var f = le();
-    if (b(f))
-      return P(f);
-    a = setTimeout(x, v(f));
+    var m = le();
+    if (b(m))
+      return P(m);
+    a = setTimeout(x, g(m));
   }
-  function P(f) {
-    return a = void 0, m && o ? p(f) : (o = s = void 0, r);
+  function P(m) {
+    return a = void 0, f && o ? p(m) : (o = s = void 0, r);
   }
   function w() {
     a !== void 0 && clearTimeout(a), c = 0, o = l = s = a = void 0;
   }
-  function g() {
+  function v() {
     return a === void 0 ? r : P(le());
   }
   function E() {
-    var f = le(), y = b(f);
-    if (o = arguments, s = this, l = f, y) {
+    var m = le(), y = b(m);
+    if (o = arguments, s = this, l = m, y) {
       if (a === void 0)
-        return C(l);
+        return I(l);
       if (u)
         return a = setTimeout(x, t), p(l);
     }
     return a === void 0 && (a = setTimeout(x, t)), r;
   }
-  return E.cancel = w, E.flush = g, E;
+  return E.cancel = w, E.flush = v, E;
 }
 function ji(e, t, i) {
   var o = !0, s = !0;
@@ -340,15 +340,15 @@ const Ee = /* @__PURE__ */ Li(Ki), Y = {
   if (!r || !t) {
     const w = ke(c, h);
     if (!w) return u;
-    const g = u.includes("?") ? "&" : "?";
-    return `${u}${g}${w}`;
+    const v = u.includes("?") ? "&" : "?";
+    return `${u}${v}${w}`;
   }
-  const m = qi.includes(o) ? null : o, p = m ? `${m}/` : "", C = ho(t), v = co(u, r, p), b = uo({
+  const f = qi.includes(o) ? null : o, p = f ? `${f}/` : "", I = ho(t), g = co(u, r, p), b = uo({
     ciTransformation: l,
-    responsiveWidth: C,
+    responsiveWidth: I,
     ciFilters: a
   }), x = ke(c, h), P = [b, x].filter(Boolean).join("&");
-  return `${v}${P ? "?" : ""}${P}`;
+  return `${g}${P ? "?" : ""}${P}`;
 }, qt = (e, t = 0) => (e += "", e.length >= t ? e : new Array(t - e.length + 1).join("0") + e), po = (e, { amount: t = 0, indexZeroBase: i = 0 } = {}) => Array.from({ length: t }, (o, s) => e.replace("{index}", qt(s + 1, i))), mo = (e, { amountX: t = 0, amountY: i = 0, indexZeroBase: o = 0 } = {}) => {
   const s = [];
   for (let n = 0; n < i; n++)
@@ -367,13 +367,13 @@ const Ee = /* @__PURE__ */ Li(Ki), Y = {
 }) => {
   let r = 0, a = 0;
   const l = e.length, c = [], h = [];
-  let u = 0, m = 0;
-  const p = [], C = (f, y, I = !1) => {
+  let u = 0, f = 0;
+  const p = [], I = (m, y, C = !1) => {
     const T = {
-      message: `Failed to load image: ${f}`,
-      url: f,
+      message: `Failed to load image: ${m}`,
+      url: m,
       index: y,
-      isFirstImage: I
+      isFirstImage: C
     };
     h.push(T), a++, s == null || s({
       error: T,
@@ -381,50 +381,50 @@ const Ee = /* @__PURE__ */ Li(Ki), Y = {
       totalImages: l,
       errors: h
     });
-  }, v = () => {
+  }, g = () => {
     r === l && (o == null || o(c, { errorCount: a, errors: h }));
   }, b = () => {
-    for (; u < go && m < p.length; ) {
-      const f = p[m];
-      m++, x(e[f], f);
+    for (; u < go && f < p.length; ) {
+      const m = p[f];
+      f++, x(e[m], m);
     }
-  }, x = (f, y) => {
+  }, x = (m, y) => {
     u++;
-    const I = new Image();
-    I.crossOrigin = "anonymous", I.src = f, I.onload = async () => {
+    const C = new Image();
+    C.crossOrigin = "anonymous", C.src = m, C.onload = async () => {
       try {
-        const T = await createImageBitmap(I), k = {
-          src: f,
+        const T = await createImageBitmap(C), k = {
+          src: m,
           bitmapImage: T,
-          naturalWidth: I.naturalWidth,
-          naturalHeight: I.naturalHeight
+          naturalWidth: C.naturalWidth,
+          naturalHeight: C.naturalHeight
         };
-        I.onload = null, I.onerror = null, I.src = "", r++, u--, c[y] = k, i == null || i(k, y), v(), b();
+        C.onload = null, C.onerror = null, C.src = "", r++, u--, c[y] = k, i == null || i(k, y), g(), b();
       } catch {
-        I.onload = null, I.onerror = null, I.src = "", r++, u--, C(f, y), v(), b();
+        C.onload = null, C.onerror = null, C.src = "", r++, u--, I(m, y), g(), b();
       }
-    }, I.onerror = () => {
-      I.onload = null, I.onerror = null, I.src = "", r++, u--, C(f, y), v(), b();
+    }, C.onerror = () => {
+      C.onload = null, C.onerror = null, C.src = "", r++, u--, I(m, y), g(), b();
     };
-  }, P = (f) => {
+  }, P = (m) => {
     for (let y = 0; y < e.length; y++)
-      y !== f && p.push(y);
-    m = 0, b();
-  }, w = new Image(), g = n ? e.length - 1 : 0, E = e[g];
+      y !== m && p.push(y);
+    f = 0, b();
+  }, w = new Image(), v = n ? e.length - 1 : 0, E = e[v];
   w.crossOrigin = "anonymous", w.src = E, w.onload = async () => {
     try {
-      const f = await createImageBitmap(w), y = {
+      const m = await createImageBitmap(w), y = {
         src: E,
-        bitmapImage: f,
+        bitmapImage: m,
         naturalWidth: w.naturalWidth,
         naturalHeight: w.naturalHeight
       };
-      w.onload = null, w.onerror = null, w.src = "", c[g] = y, r++, t == null || t(y), i == null || i(y, g), l === 1 ? v() : P(g);
+      w.onload = null, w.onerror = null, w.src = "", c[v] = y, r++, t == null || t(y), i == null || i(y, v), l === 1 ? g() : P(v);
     } catch {
-      w.onload = null, w.onerror = null, w.src = "", r++, C(E, g, !0), l === 1 ? v() : P(g);
+      w.onload = null, w.onerror = null, w.src = "", r++, I(E, v, !0), l === 1 ? g() : P(v);
     }
   }, w.onerror = () => {
-    w.onload = null, w.onerror = null, w.src = "", r++, C(E, g, !0), l === 1 ? v() : P(g);
+    w.onload = null, w.onerror = null, w.src = "", r++, I(E, v, !0), l === 1 ? g() : P(v);
   };
 }, Xe = ({
   cdnPathX: e,
@@ -436,30 +436,30 @@ const Ee = /* @__PURE__ */ Li(Ki), Y = {
   onAllImagesLoad: r,
   onError: a
 }) => {
-  let l = { x: !1, y: !1 }, c = [], h = [], u = { errorCount: 0, errors: [] }, m = { errorCount: 0, errors: [] };
-  const p = e || i.imageList.length, C = t || o.imageList.length, v = () => {
+  let l = { x: !1, y: !1 }, c = [], h = [], u = { errorCount: 0, errors: [] }, f = { errorCount: 0, errors: [] };
+  const p = e || i.imageList.length, I = t || o.imageList.length, g = () => {
     if (l.x && l.y) {
       const x = {
-        errorCount: u.errorCount + m.errorCount,
-        errors: [...u.errors, ...m.errors]
+        errorCount: u.errorCount + f.errorCount,
+        errors: [...u.errors, ...f.errors]
       };
       r == null || r(c, h, x);
     }
-  }, b = ({ cdnPath: x, config: P, orientation: w, loadedImages: g, loadStats: E, onFirstImageLoad: f }) => {
-    const y = w === L.X, I = P.imageList.length ? P.imageList : po(x, P);
+  }, b = ({ cdnPath: x, config: P, orientation: w, loadedImages: v, loadStats: E, onFirstImageLoad: m }) => {
+    const y = w === L.X, C = P.imageList.length ? P.imageList : po(x, P);
     oi({
-      imagesUrls: I,
-      onFirstImageLoad: f,
+      imagesUrls: C,
+      onFirstImageLoad: m,
       onImageLoad: (T, k) => {
-        n == null || n(T, k, w), g[k] = T;
+        n == null || n(T, k, w), v[k] = T;
       },
       onError: (T) => {
         a == null || a({ ...T, orientation: w });
       },
       onAllImagesLoad: (T, k) => {
-        g.length = 0, T.forEach((X, O) => {
-          X && (g[O] = X);
-        }), E.errorCount = k.errorCount, E.errors = k.errors.map((X) => ({ ...X, orientation: w })), l[y ? "x" : "y"] = !0, v();
+        v.length = 0, T.forEach((X, O) => {
+          X && (v[O] = X);
+        }), E.errorCount = k.errorCount, E.errors = k.errors.map((X) => ({ ...X, orientation: w })), l[y ? "x" : "y"] = !0, g();
       },
       autoplayReverse: P.autoplayReverse
     });
@@ -471,14 +471,14 @@ const Ee = /* @__PURE__ */ Li(Ki), Y = {
     loadedImages: c,
     loadStats: u,
     onFirstImageLoad: s
-  }) : l.x = !0, C ? b({
+  }) : l.x = !0, I ? b({
     cdnPath: t,
     config: o,
     orientation: L.Y,
     loadedImages: h,
-    loadStats: m,
+    loadStats: f,
     onFirstImageLoad: p ? void 0 : s
-  }) : l.y = !0, !p && !C && v();
+  }) : l.y = !0, !p && !I && g();
 }, Se = ({
   cdnPath: e,
   config: t,
@@ -752,9 +752,9 @@ const Ee = /* @__PURE__ */ Li(Ki), Y = {
     filter: blur(10px);
   `, o;
 }, he = (e, t, i) => {
-  const { innerBox: o, imageList: s, lazyload: n } = t || {}, [r] = s, a = r || Vo(e, t), l = _o(a), c = Re(l, n, "cloudimage-lazy"), h = Re(l, !1, "cloudimage-360-placeholder"), u = (m) => {
+  const { innerBox: o, imageList: s, lazyload: n } = t || {}, [r] = s, a = r || Vo(e, t), l = _o(a), c = Re(l, n, "cloudimage-lazy"), h = Re(l, !1, "cloudimage-360-placeholder"), u = (f) => {
     ue(o, ".cloudimage-lazy"), i && i({
-      event: m,
+      event: f,
       width: c.width,
       height: c.height,
       naturalWidth: c.naturalWidth,
@@ -777,8 +777,8 @@ const Ee = /* @__PURE__ */ Li(Ki), Y = {
 }) => {
   const { naturalWidth: a, naturalHeight: l } = i;
   let c = e / n * a - o / 2, h = t / r * l - s / 2;
-  const u = Math.max(0, a - o), m = Math.max(0, l - s);
-  return c = Math.max(0, Math.min(c, u)), h = Math.max(0, Math.min(h, m)), { zoomOffsetX: c, zoomOffsetY: h };
+  const u = Math.max(0, a - o), f = Math.max(0, l - s);
+  return c = Math.max(0, Math.min(c, u)), h = Math.max(0, Math.min(h, f)), { zoomOffsetX: c, zoomOffsetY: h };
 }, ze = (e, { bottom: t, top: i }) => {
   e ? t() : i();
 }, Ze = (e, { left: t, right: i }) => {
@@ -1185,7 +1185,7 @@ class us {
     if (!this.canvas || !this.ctx || !n) return;
     let r, a;
     if (this.wideImage ? (r = 0, a = (this.canvas.height / this.dpr - this.drawHeight) / 2) : (r = (this.canvas.width / this.dpr - this.drawWidth) / 2, a = 0), this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height), i !== 1) {
-      const { naturalWidth: l, naturalHeight: c } = t, { zoomedWidth: h, zoomedHeight: u } = jo(l, c, i), { zoomOffsetX: m, zoomOffsetY: p } = Uo({
+      const { naturalWidth: l, naturalHeight: c } = t, { zoomedWidth: h, zoomedHeight: u } = jo(l, c, i), { zoomOffsetX: f, zoomOffsetY: p } = Uo({
         pointerX: o,
         pointerY: s,
         imageData: t,
@@ -1196,7 +1196,7 @@ class us {
       });
       this.ctx.drawImage(
         n,
-        m,
+        f,
         p,
         h,
         u,
@@ -1409,15 +1409,15 @@ const ps = /* @__PURE__ */ new Set([
   let a = e, l = t, c = 0, h = 0;
   const u = e / t;
   o > u ? (l = e / o, h = (t - l) / 2) : (a = t * o, c = (e - a) / 2);
-  const p = a / n, C = l / r;
-  return s.map((v) => {
+  const p = a / n, I = l / r;
+  return s.map((g) => {
     const b = {};
-    return Object.entries(v.initialPositions).forEach(([x, P]) => {
+    return Object.entries(g.initialPositions).forEach(([x, P]) => {
       b[x] = {
         x: P.x * p + c,
-        y: P.y * C + h
+        y: P.y * I + h
       };
-    }), { ...v, positions: b };
+    }), { ...g, positions: b };
   });
 };
 function Ps(e) {
@@ -1546,13 +1546,13 @@ function yt(e, t, i) {
   t === void 0 && (t = !1), i === void 0 && (i = !1);
   var o = e.getBoundingClientRect(), s = 1, n = 1;
   t && G(e) && (s = e.offsetWidth > 0 && vt(o.width) / e.offsetWidth || 1, n = e.offsetHeight > 0 && vt(o.height) / e.offsetHeight || 1);
-  var r = ht(e) ? D(e) : window, a = r.visualViewport, l = !hi() && i, c = (o.left + (l && a ? a.offsetLeft : 0)) / s, h = (o.top + (l && a ? a.offsetTop : 0)) / n, u = o.width / s, m = o.height / n;
+  var r = ht(e) ? D(e) : window, a = r.visualViewport, l = !hi() && i, c = (o.left + (l && a ? a.offsetLeft : 0)) / s, h = (o.top + (l && a ? a.offsetTop : 0)) / n, u = o.width / s, f = o.height / n;
   return {
     width: u,
-    height: m,
+    height: f,
     top: h,
     right: c + u,
-    bottom: h + m,
+    bottom: h + f,
     left: c,
     x: c,
     y: h
@@ -1664,8 +1664,8 @@ var Ns = function(t, i) {
 function Ws(e) {
   var t, i = e.state, o = e.name, s = e.options, n = i.elements.arrow, r = i.modifiersData.popperOffsets, a = V(i.placement), l = ye(a), c = [z, F].indexOf(a) >= 0, h = c ? "height" : "width";
   if (!(!n || !r)) {
-    var u = Ns(s.padding, i), m = ve(n), p = l === "y" ? R : z, C = l === "y" ? _ : F, v = i.rects.reference[h] + i.rects.reference[l] - r[l] - i.rects.popper[h], b = r[l] - i.rects.reference[l], x = Mt(n), P = x ? l === "y" ? x.clientHeight || 0 : x.clientWidth || 0 : 0, w = v / 2 - b / 2, g = u[p], E = P - m[h] - u[C], f = P / 2 - m[h] / 2 + w, y = kt(g, f, E), I = l;
-    i.modifiersData[o] = (t = {}, t[I] = y, t.centerOffset = y - f, t);
+    var u = Ns(s.padding, i), f = ve(n), p = l === "y" ? R : z, I = l === "y" ? _ : F, g = i.rects.reference[h] + i.rects.reference[l] - r[l] - i.rects.popper[h], b = r[l] - i.rects.reference[l], x = Mt(n), P = x ? l === "y" ? x.clientHeight || 0 : x.clientWidth || 0 : 0, w = g / 2 - b / 2, v = u[p], E = P - f[h] - u[I], m = P / 2 - f[h] / 2 + w, y = kt(v, m, E), C = l;
+    i.modifiersData[o] = (t = {}, t[C] = y, t.centerOffset = y - m, t);
   }
 }
 function Vs(e) {
@@ -1698,30 +1698,30 @@ function $s(e, t) {
   };
 }
 function Ve(e) {
-  var t, i = e.popper, o = e.popperRect, s = e.placement, n = e.variation, r = e.offsets, a = e.position, l = e.gpuAcceleration, c = e.adaptive, h = e.roundOffsets, u = e.isFixed, m = r.x, p = m === void 0 ? 0 : m, C = r.y, v = C === void 0 ? 0 : C, b = typeof h == "function" ? h({
+  var t, i = e.popper, o = e.popperRect, s = e.placement, n = e.variation, r = e.offsets, a = e.position, l = e.gpuAcceleration, c = e.adaptive, h = e.roundOffsets, u = e.isFixed, f = r.x, p = f === void 0 ? 0 : f, I = r.y, g = I === void 0 ? 0 : I, b = typeof h == "function" ? h({
     x: p,
-    y: v
+    y: g
   }) : {
     x: p,
-    y: v
+    y: g
   };
-  p = b.x, v = b.y;
-  var x = r.hasOwnProperty("x"), P = r.hasOwnProperty("y"), w = z, g = R, E = window;
+  p = b.x, g = b.y;
+  var x = r.hasOwnProperty("x"), P = r.hasOwnProperty("y"), w = z, v = R, E = window;
   if (c) {
-    var f = Mt(i), y = "clientHeight", I = "clientWidth";
-    if (f === D(i) && (f = ot(i), tt(f).position !== "static" && a === "absolute" && (y = "scrollHeight", I = "scrollWidth")), f = f, s === R || (s === z || s === F) && n === St) {
-      g = _;
-      var T = u && f === E && E.visualViewport ? E.visualViewport.height : (
+    var m = Mt(i), y = "clientHeight", C = "clientWidth";
+    if (m === D(i) && (m = ot(i), tt(m).position !== "static" && a === "absolute" && (y = "scrollHeight", C = "scrollWidth")), m = m, s === R || (s === z || s === F) && n === St) {
+      v = _;
+      var T = u && m === E && E.visualViewport ? E.visualViewport.height : (
         // $FlowFixMe[prop-missing]
-        f[y]
+        m[y]
       );
-      v -= T - o.height, v *= l ? 1 : -1;
+      g -= T - o.height, g *= l ? 1 : -1;
     }
     if (s === z || (s === R || s === _) && n === St) {
       w = F;
-      var k = u && f === E && E.visualViewport ? E.visualViewport.width : (
+      var k = u && m === E && E.visualViewport ? E.visualViewport.width : (
         // $FlowFixMe[prop-missing]
-        f[I]
+        m[C]
       );
       p -= k - o.width, p *= l ? 1 : -1;
     }
@@ -1730,16 +1730,16 @@ function Ve(e) {
     position: a
   }, c && Us), O = h === !0 ? $s({
     x: p,
-    y: v
+    y: g
   }, D(i)) : {
     x: p,
-    y: v
+    y: g
   };
-  if (p = O.x, v = O.y, l) {
+  if (p = O.x, g = O.y, l) {
     var M;
-    return Object.assign({}, X, (M = {}, M[g] = P ? "0" : "", M[w] = x ? "0" : "", M.transform = (E.devicePixelRatio || 1) <= 1 ? "translate(" + p + "px, " + v + "px)" : "translate3d(" + p + "px, " + v + "px, 0)", M));
+    return Object.assign({}, X, (M = {}, M[v] = P ? "0" : "", M[w] = x ? "0" : "", M.transform = (E.devicePixelRatio || 1) <= 1 ? "translate(" + p + "px, " + g + "px)" : "translate3d(" + p + "px, " + g + "px, 0)", M));
   }
-  return Object.assign({}, X, (t = {}, t[g] = P ? v + "px" : "", t[w] = x ? p + "px" : "", t.transform = "", t));
+  return Object.assign({}, X, (t = {}, t[v] = P ? g + "px" : "", t[w] = x ? p + "px" : "", t.transform = "", t));
 }
 function Ks(e) {
   var t = e.state, i = e.options, o = i.gpuAcceleration, s = o === void 0 ? !0 : o, n = i.adaptive, r = n === void 0 ? !0 : n, a = i.roundOffsets, l = a === void 0 ? !0 : a, c = {
@@ -1939,17 +1939,17 @@ function fi(e) {
 }
 function Yt(e, t) {
   t === void 0 && (t = {});
-  var i = t, o = i.placement, s = o === void 0 ? e.placement : o, n = i.strategy, r = n === void 0 ? e.strategy : n, a = i.boundary, l = a === void 0 ? Ts : a, c = i.rootBoundary, h = c === void 0 ? ai : c, u = i.elementContext, m = u === void 0 ? At : u, p = i.altBoundary, C = p === void 0 ? !1 : p, v = i.padding, b = v === void 0 ? 0 : v, x = ui(typeof b != "number" ? b : pi(b, Lt)), P = m === At ? As : At, w = e.rects.popper, g = e.elements[C ? P : m], E = an(ht(g) ? g : g.contextElement || ot(e.elements.popper), l, h, r), f = yt(e.elements.reference), y = fi({
-    reference: f,
+  var i = t, o = i.placement, s = o === void 0 ? e.placement : o, n = i.strategy, r = n === void 0 ? e.strategy : n, a = i.boundary, l = a === void 0 ? Ts : a, c = i.rootBoundary, h = c === void 0 ? ai : c, u = i.elementContext, f = u === void 0 ? At : u, p = i.altBoundary, I = p === void 0 ? !1 : p, g = i.padding, b = g === void 0 ? 0 : g, x = ui(typeof b != "number" ? b : pi(b, Lt)), P = f === At ? As : At, w = e.rects.popper, v = e.elements[I ? P : f], E = an(ht(v) ? v : v.contextElement || ot(e.elements.popper), l, h, r), m = yt(e.elements.reference), y = fi({
+    reference: m,
     element: w,
     placement: s
-  }), I = me(Object.assign({}, w, y)), T = m === At ? I : f, k = {
+  }), C = me(Object.assign({}, w, y)), T = f === At ? C : m, k = {
     top: E.top - T.top + x.top,
     bottom: T.bottom - E.bottom + x.bottom,
     left: E.left - T.left + x.left,
     right: T.right - E.right + x.right
   }, X = e.modifiersData.offset;
-  if (m === At && X) {
+  if (f === At && X) {
     var O = X[s];
     Object.keys(k).forEach(function(M) {
       var U = [F, _].indexOf(M) >= 0 ? 1 : -1, $ = [R, _].indexOf(M) >= 0 ? "y" : "x";
@@ -1960,22 +1960,22 @@ function Yt(e, t) {
 }
 function ln(e, t) {
   t === void 0 && (t = {});
-  var i = t, o = i.placement, s = i.boundary, n = i.rootBoundary, r = i.padding, a = i.flipVariations, l = i.allowedAutoPlacements, c = l === void 0 ? li : l, h = bt(o), u = h ? a ? Ne : Ne.filter(function(C) {
-    return bt(C) === h;
-  }) : Lt, m = u.filter(function(C) {
-    return c.indexOf(C) >= 0;
+  var i = t, o = i.placement, s = i.boundary, n = i.rootBoundary, r = i.padding, a = i.flipVariations, l = i.allowedAutoPlacements, c = l === void 0 ? li : l, h = bt(o), u = h ? a ? Ne : Ne.filter(function(I) {
+    return bt(I) === h;
+  }) : Lt, f = u.filter(function(I) {
+    return c.indexOf(I) >= 0;
   });
-  m.length === 0 && (m = u);
-  var p = m.reduce(function(C, v) {
-    return C[v] = Yt(e, {
-      placement: v,
+  f.length === 0 && (f = u);
+  var p = f.reduce(function(I, g) {
+    return I[g] = Yt(e, {
+      placement: g,
       boundary: s,
       rootBoundary: n,
       padding: r
-    })[V(v)], C;
+    })[V(g)], I;
   }, {});
-  return Object.keys(p).sort(function(C, v) {
-    return p[C] - p[v];
+  return Object.keys(p).sort(function(I, g) {
+    return p[I] - p[g];
   });
 }
 function hn(e) {
@@ -1987,36 +1987,36 @@ function hn(e) {
 function cn(e) {
   var t = e.state, i = e.options, o = e.name;
   if (!t.modifiersData[o]._skip) {
-    for (var s = i.mainAxis, n = s === void 0 ? !0 : s, r = i.altAxis, a = r === void 0 ? !0 : r, l = i.fallbackPlacements, c = i.padding, h = i.boundary, u = i.rootBoundary, m = i.altBoundary, p = i.flipVariations, C = p === void 0 ? !0 : p, v = i.allowedAutoPlacements, b = t.options.placement, x = V(b), P = x === b, w = l || (P || !C ? [$t(b)] : hn(b)), g = [b].concat(w).reduce(function(it, W) {
+    for (var s = i.mainAxis, n = s === void 0 ? !0 : s, r = i.altAxis, a = r === void 0 ? !0 : r, l = i.fallbackPlacements, c = i.padding, h = i.boundary, u = i.rootBoundary, f = i.altBoundary, p = i.flipVariations, I = p === void 0 ? !0 : p, g = i.allowedAutoPlacements, b = t.options.placement, x = V(b), P = x === b, w = l || (P || !I ? [$t(b)] : hn(b)), v = [b].concat(w).reduce(function(it, W) {
       return it.concat(V(W) === fe ? ln(t, {
         placement: W,
         boundary: h,
         rootBoundary: u,
         padding: c,
-        flipVariations: C,
-        allowedAutoPlacements: v
+        flipVariations: I,
+        allowedAutoPlacements: g
       }) : W);
-    }, []), E = t.rects.reference, f = t.rects.popper, y = /* @__PURE__ */ new Map(), I = !0, T = g[0], k = 0; k < g.length; k++) {
-      var X = g[k], O = V(X), M = bt(X) === gt, U = [R, _].indexOf(O) >= 0, $ = U ? "width" : "height", H = Yt(t, {
+    }, []), E = t.rects.reference, m = t.rects.popper, y = /* @__PURE__ */ new Map(), C = !0, T = v[0], k = 0; k < v.length; k++) {
+      var X = v[k], O = V(X), M = bt(X) === gt, U = [R, _].indexOf(O) >= 0, $ = U ? "width" : "height", H = Yt(t, {
         placement: X,
         boundary: h,
         rootBoundary: u,
-        altBoundary: m,
+        altBoundary: f,
         padding: c
       }), Z = U ? M ? F : z : M ? _ : R;
-      E[$] > f[$] && (Z = $t(Z));
+      E[$] > m[$] && (Z = $t(Z));
       var ct = $t(Z), K = [];
       if (n && K.push(H[O] <= 0), a && K.push(H[Z] <= 0, H[ct] <= 0), K.every(function(it) {
         return it;
       })) {
-        T = X, I = !1;
+        T = X, C = !1;
         break;
       }
       y.set(X, K);
     }
-    if (I)
-      for (var dt = C ? 3 : 1, ut = function(W) {
-        var nt = g.find(function(pt) {
+    if (C)
+      for (var dt = I ? 3 : 1, ut = function(W) {
+        var nt = v.find(function(pt) {
           var q = y.get(pt);
           if (q)
             return q.slice(0, W).every(function(wt) {
@@ -2125,14 +2125,14 @@ function bn(e) {
   return e === "x" ? "y" : "x";
 }
 function wn(e) {
-  var t = e.state, i = e.options, o = e.name, s = i.mainAxis, n = s === void 0 ? !0 : s, r = i.altAxis, a = r === void 0 ? !1 : r, l = i.boundary, c = i.rootBoundary, h = i.altBoundary, u = i.padding, m = i.tether, p = m === void 0 ? !0 : m, C = i.tetherOffset, v = C === void 0 ? 0 : C, b = Yt(t, {
+  var t = e.state, i = e.options, o = e.name, s = i.mainAxis, n = s === void 0 ? !0 : s, r = i.altAxis, a = r === void 0 ? !1 : r, l = i.boundary, c = i.rootBoundary, h = i.altBoundary, u = i.padding, f = i.tether, p = f === void 0 ? !0 : f, I = i.tetherOffset, g = I === void 0 ? 0 : I, b = Yt(t, {
     boundary: l,
     rootBoundary: c,
     padding: u,
     altBoundary: h
-  }), x = V(t.placement), P = bt(t.placement), w = !P, g = ye(x), E = bn(g), f = t.modifiersData.popperOffsets, y = t.rects.reference, I = t.rects.popper, T = typeof v == "function" ? v(Object.assign({}, t.rects, {
+  }), x = V(t.placement), P = bt(t.placement), w = !P, v = ye(x), E = bn(v), m = t.modifiersData.popperOffsets, y = t.rects.reference, C = t.rects.popper, T = typeof g == "function" ? g(Object.assign({}, t.rects, {
     placement: t.placement
-  })) : v, k = typeof T == "number" ? {
+  })) : g, k = typeof T == "number" ? {
     mainAxis: T,
     altAxis: T
   } : Object.assign({
@@ -2142,17 +2142,17 @@ function wn(e) {
     x: 0,
     y: 0
   };
-  if (f) {
+  if (m) {
     if (n) {
-      var M, U = g === "y" ? R : z, $ = g === "y" ? _ : F, H = g === "y" ? "height" : "width", Z = f[g], ct = Z + b[U], K = Z - b[$], dt = p ? -I[H] / 2 : 0, ut = P === gt ? y[H] : I[H], st = P === gt ? -I[H] : -y[H], et = t.elements.arrow, it = p && et ? ve(et) : {
+      var M, U = v === "y" ? R : z, $ = v === "y" ? _ : F, H = v === "y" ? "height" : "width", Z = m[v], ct = Z + b[U], K = Z - b[$], dt = p ? -C[H] / 2 : 0, ut = P === gt ? y[H] : C[H], st = P === gt ? -C[H] : -y[H], et = t.elements.arrow, it = p && et ? ve(et) : {
         width: 0,
         height: 0
-      }, W = t.modifiersData["arrow#persistent"] ? t.modifiersData["arrow#persistent"].padding : di(), nt = W[U], pt = W[$], q = kt(0, y[H], it[H]), wt = w ? y[H] / 2 - dt - q - nt - k.mainAxis : ut - q - nt - k.mainAxis, te = w ? -y[H] / 2 + dt + q + pt + k.mainAxis : st + q + pt + k.mainAxis, Ct = t.elements.arrow && Mt(t.elements.arrow), ee = Ct ? g === "y" ? Ct.clientTop || 0 : Ct.clientLeft || 0 : 0, Ot = (M = X == null ? void 0 : X[g]) != null ? M : 0, ie = Z + wt - Ot - ee, oe = Z + te - Ot, Ht = kt(p ? Jt(ct, ie) : ct, Z, p ? lt(K, oe) : K);
-      f[g] = Ht, O[g] = Ht - Z;
+      }, W = t.modifiersData["arrow#persistent"] ? t.modifiersData["arrow#persistent"].padding : di(), nt = W[U], pt = W[$], q = kt(0, y[H], it[H]), wt = w ? y[H] / 2 - dt - q - nt - k.mainAxis : ut - q - nt - k.mainAxis, te = w ? -y[H] / 2 + dt + q + pt + k.mainAxis : st + q + pt + k.mainAxis, Ct = t.elements.arrow && Mt(t.elements.arrow), ee = Ct ? v === "y" ? Ct.clientTop || 0 : Ct.clientLeft || 0 : 0, Ot = (M = X == null ? void 0 : X[v]) != null ? M : 0, ie = Z + wt - Ot - ee, oe = Z + te - Ot, Ht = kt(p ? Jt(ct, ie) : ct, Z, p ? lt(K, oe) : K);
+      m[v] = Ht, O[v] = Ht - Z;
     }
     if (a) {
-      var It, Rt = g === "x" ? R : z, zt = g === "x" ? _ : F, J = f[E], mt = E === "y" ? "height" : "width", Zt = J + b[Rt], Dt = J - b[zt], xt = [R, z].indexOf(x) !== -1, Bt = (It = X == null ? void 0 : X[E]) != null ? It : 0, Gt = xt ? Zt : J - y[mt] - I[mt] - Bt + k.altAxis, _t = xt ? J + y[mt] + I[mt] - Bt - k.altAxis : Dt, Ft = p && xt ? Fs(Gt, J, _t) : kt(p ? Gt : Zt, J, p ? _t : Dt);
-      f[E] = Ft, O[E] = Ft - J;
+      var It, Rt = v === "x" ? R : z, zt = v === "x" ? _ : F, J = m[E], mt = E === "y" ? "height" : "width", Zt = J + b[Rt], Dt = J - b[zt], xt = [R, z].indexOf(x) !== -1, Bt = (It = X == null ? void 0 : X[E]) != null ? It : 0, Gt = xt ? Zt : J - y[mt] - C[mt] - Bt + k.altAxis, _t = xt ? J + y[mt] + C[mt] - Bt - k.altAxis : Dt, Ft = p && xt ? Fs(Gt, J, _t) : kt(p ? Gt : Zt, J, p ? _t : Dt);
+      m[E] = Ft, O[E] = Ft - J;
     }
     t.modifiersData[o] = O;
   }
@@ -2271,18 +2271,18 @@ function Sn(e) {
       },
       attributes: {},
       styles: {}
-    }, u = [], m = !1, p = {
+    }, u = [], f = !1, p = {
       state: h,
       setOptions: function(x) {
         var P = typeof x == "function" ? x(h.options) : x;
-        v(), h.options = Object.assign({}, n, h.options, P), h.scrollParents = {
+        g(), h.options = Object.assign({}, n, h.options, P), h.scrollParents = {
           reference: ht(a) ? Xt(a) : a.contextElement ? Xt(a.contextElement) : [],
           popper: Xt(l)
         };
         var w = An(Xn([].concat(o, h.options.modifiers)));
-        return h.orderedModifiers = w.filter(function(g) {
-          return g.enabled;
-        }), C(), p.update();
+        return h.orderedModifiers = w.filter(function(v) {
+          return v.enabled;
+        }), I(), p.update();
       },
       // Sync update – it will always be executed, even if not necessary. This
       // is useful for low frequency updates where sync behavior simplifies the
@@ -2290,7 +2290,7 @@ function Sn(e) {
       // For high frequency updates (e.g. `resize` and `scroll` events), always
       // prefer the async Popper#update method
       forceUpdate: function() {
-        if (!m) {
+        if (!f) {
           var x = h.elements, P = x.reference, w = x.popper;
           if (Je(P, w)) {
             h.rects = {
@@ -2299,15 +2299,15 @@ function Sn(e) {
             }, h.reset = !1, h.placement = h.options.placement, h.orderedModifiers.forEach(function(k) {
               return h.modifiersData[k.name] = Object.assign({}, k.data);
             });
-            for (var g = 0; g < h.orderedModifiers.length; g++) {
+            for (var v = 0; v < h.orderedModifiers.length; v++) {
               if (h.reset === !0) {
-                h.reset = !1, g = -1;
+                h.reset = !1, v = -1;
                 continue;
               }
-              var E = h.orderedModifiers[g], f = E.fn, y = E.options, I = y === void 0 ? {} : y, T = E.name;
-              typeof f == "function" && (h = f({
+              var E = h.orderedModifiers[v], m = E.fn, y = E.options, C = y === void 0 ? {} : y, T = E.name;
+              typeof m == "function" && (h = m({
                 state: h,
-                options: I,
+                options: C,
                 name: T,
                 instance: p
               }) || h);
@@ -2323,30 +2323,30 @@ function Sn(e) {
         });
       }),
       destroy: function() {
-        v(), m = !0;
+        g(), f = !0;
       }
     };
     if (!Je(a, l))
       return p;
     p.setOptions(c).then(function(b) {
-      !m && c.onFirstUpdate && c.onFirstUpdate(b);
+      !f && c.onFirstUpdate && c.onFirstUpdate(b);
     });
-    function C() {
+    function I() {
       h.orderedModifiers.forEach(function(b) {
-        var x = b.name, P = b.options, w = P === void 0 ? {} : P, g = b.effect;
-        if (typeof g == "function") {
-          var E = g({
+        var x = b.name, P = b.options, w = P === void 0 ? {} : P, v = b.effect;
+        if (typeof v == "function") {
+          var E = v({
             state: h,
             name: x,
             instance: p,
             options: w
-          }), f = function() {
+          }), m = function() {
           };
-          u.push(E || f);
+          u.push(E || m);
         }
       });
     }
-    function v() {
+    function g() {
       u.forEach(function(b) {
         return b();
       }), u = [];
@@ -2416,9 +2416,9 @@ class On {
       { element: t, event: "mouseleave", handler: l },
       { element: t, event: "mouseenter", handler: c }
     ), this.onProductClick) {
-      const m = this.onProductClick, p = (C) => {
-        const v = C.target.closest(".ci360-popper-cta");
-        v && m(v.dataset.productId ?? "", o);
+      const f = this.onProductClick, p = (I) => {
+        const g = I.target.closest(".ci360-popper-cta");
+        g && f(g.dataset.productId ?? "", o);
       };
       this.popper.addEventListener("click", p), this.popperListeners.push(
         { element: this.popper, event: "click", handler: p }
@@ -2432,8 +2432,8 @@ class On {
     };
     try {
       (u = this.onOpen) == null || u.call(this, o);
-    } catch (m) {
-      console.warn("onHotspotOpen callback error:", m);
+    } catch (f) {
+      console.warn("onHotspotOpen callback error:", f);
     }
   }
   checkAndHidePopper() {
@@ -2472,47 +2472,50 @@ class On {
     this.shouldHidePopper = !0, this.popperInstance && (this.popperInstance.keepOpen = !1), this.hidePopper();
   }
   createHotspot(t) {
-    const { id: i, keepOpen: o, onClick: s, label: n, markerStyle: r, navigateTo: a } = t, l = typeof a == "string" ? a.trim() : void 0, c = de(t), h = ys(i, n, r);
-    if (l) {
-      h.classList.add("cloudimage-360-hotspot--navigate"), h.innerHTML = Mn;
-      const u = n || l;
-      h.setAttribute("role", "button"), h.setAttribute("aria-label", `Navigate to ${u}`), h.setAttribute("aria-roledescription", "navigation hotspot"), h.style.cursor = "pointer";
-      const m = c || (n ? de({ data: { title: n } }) : "");
-      m ? (h.setAttribute("aria-haspopup", "true"), h.addEventListener(
+    const { id: i, keepOpen: o, onClick: s, label: n, markerStyle: r, navigateTo: a, arrowDirection: l } = t, c = typeof a == "string" ? a.trim() : void 0, h = de(t), u = ys(i, n, r);
+    if (c) {
+      if (u.classList.add("cloudimage-360-hotspot--navigate"), u.innerHTML = Mn, l != null) {
+        const g = u.querySelector(".ci360-navigate-icon");
+        g && (g.style.transform = `rotate(${l}deg)`);
+      }
+      const f = n || c;
+      u.setAttribute("role", "button"), u.setAttribute("aria-label", `Navigate to ${f}`), u.setAttribute("aria-roledescription", "navigation hotspot"), u.style.cursor = "pointer";
+      const p = h || (n ? de({ data: { title: n } }) : "");
+      p ? (u.setAttribute("aria-haspopup", "true"), u.addEventListener(
         "mouseenter",
-        () => this.showPopper({ hotspotElement: h, content: m, id: i, keepOpen: !1 })
-      ), h.addEventListener("mouseleave", () => {
+        () => this.showPopper({ hotspotElement: u, content: p, id: i, keepOpen: !1 })
+      ), u.addEventListener("mouseleave", () => {
         this.shouldHidePopper = !0, this.checkAndHidePopper();
-      }), h.addEventListener(
+      }), u.addEventListener(
         "focus",
-        () => this.showPopper({ hotspotElement: h, content: m, id: i, keepOpen: !1 })
-      ), h.addEventListener("blur", () => {
+        () => this.showPopper({ hotspotElement: u, content: p, id: i, keepOpen: !1 })
+      ), u.addEventListener("blur", () => {
         this.shouldHidePopper = !0, this.checkAndHidePopper();
-      })) : (h.removeAttribute("aria-haspopup"), h.removeAttribute("aria-expanded"));
-      const p = () => {
-        this.hidePopper(), this.onNavigate ? this.onNavigate(l) : console.warn(`[ci360] navigateTo hotspot "${i}" clicked but no onNavigate callback is configured.`);
+      })) : (u.removeAttribute("aria-haspopup"), u.removeAttribute("aria-expanded"));
+      const I = () => {
+        this.hidePopper(), this.onNavigate ? this.onNavigate(c) : console.warn(`[ci360] navigateTo hotspot "${i}" clicked but no onNavigate callback is configured.`);
       };
-      h.onclick = (C) => {
-        C.stopPropagation(), p();
-      }, h.addEventListener("keydown", (C) => {
-        (C.key === "Enter" || C.key === " ") && (C.preventDefault(), p());
-      }), this.hotspotsContainer.appendChild(h);
+      u.onclick = (g) => {
+        g.stopPropagation(), I();
+      }, u.addEventListener("keydown", (g) => {
+        (g.key === "Enter" || g.key === " ") && (g.preventDefault(), I());
+      }), this.hotspotsContainer.appendChild(u);
       return;
     }
-    (s || c && this.trigger === "click") && (h.style.cursor = "pointer"), h.onclick = (u) => {
-      var m;
-      u.stopPropagation(), c && this.trigger === "click" && (((m = this.popperInstance) == null ? void 0 : m.instanceId) === i ? this.hidePopper() : this.showPopper({ hotspotElement: h, content: c, id: i, keepOpen: o })), s == null || s(u, this.popperInstance, i);
-    }, c && this.trigger === "hover" && (h.addEventListener(
+    (s || h && this.trigger === "click") && (u.style.cursor = "pointer"), u.onclick = (f) => {
+      var p;
+      f.stopPropagation(), h && this.trigger === "click" && (((p = this.popperInstance) == null ? void 0 : p.instanceId) === i ? this.hidePopper() : this.showPopper({ hotspotElement: u, content: h, id: i, keepOpen: o })), s == null || s(f, this.popperInstance, i);
+    }, h && this.trigger === "hover" && (u.addEventListener(
       "mouseenter",
-      () => this.showPopper({ hotspotElement: h, content: c, id: i, keepOpen: o })
-    ), h.addEventListener("mouseleave", () => {
+      () => this.showPopper({ hotspotElement: u, content: h, id: i, keepOpen: o })
+    ), u.addEventListener("mouseleave", () => {
       this.shouldHidePopper = !0, this.checkAndHidePopper();
-    }), h.addEventListener(
+    }), u.addEventListener(
       "focus",
-      () => this.showPopper({ hotspotElement: h, content: c, id: i, keepOpen: o })
-    ), h.addEventListener("blur", () => {
+      () => this.showPopper({ hotspotElement: u, content: h, id: i, keepOpen: o })
+    ), u.addEventListener("blur", () => {
       this.shouldHidePopper = !0, this.checkAndHidePopper();
-    })), this.hotspotsContainer.appendChild(h);
+    })), this.hotspotsContainer.appendChild(u);
   }
   hideHotspots() {
     this.hotspotsContainer.querySelectorAll(".cloudimage-360-hotspot").forEach((t) => {
@@ -2614,8 +2617,8 @@ class ti {
     if (!this.isReady || !this.isClicked) return;
     const o = t - this.movementStart.x, s = i - this.movementStart.y;
     if (this.inertia) {
-      const u = performance.now(), m = u - this.lastDragTime;
-      m > 0 && m < 100 && (this.velocityX = (t - this.lastDragX) / m, this.velocityY = (i - this.lastDragY) / m), this.lastDragTime = u, this.lastDragX = t, this.lastDragY = i;
+      const u = performance.now(), f = u - this.lastDragTime;
+      f > 0 && f < 100 && (this.velocityX = (t - this.lastDragX) / f, this.velocityY = (i - this.lastDragY) / f), this.lastDragTime = u, this.lastDragX = t, this.lastDragY = i;
     }
     this.draggingDirection = Be({
       deltaX: o,
@@ -3114,7 +3117,7 @@ class ti {
       return;
     }
     if (this.isAnimatingToFrame = !0, this.hasInteracted = !0, (this.autoplay || this.loopTimeoutId) && (this.stopAutoplay(), this.autoplay = !1), this.inertiaAnimationId && (cancelAnimationFrame(this.inertiaAnimationId), this.inertiaAnimationId = null), this.isGridMode) {
-      const m = this.amountX * this.amountY, p = Math.max(0, Math.min(t, m - 1));
+      const f = this.amountX * this.amountY, p = Math.max(0, Math.min(t, f - 1));
       this.activeImageY = Math.floor(p / this.amountX), this.activeImageX = p % this.amountX, this.isZoomed || this.updateView(), this.emit("onSpin", {
         direction: p > o ? "right" : "left",
         activeImageX: this.activeImageX,
@@ -3232,19 +3235,19 @@ class ti {
       filenameGrid: c,
       imageListX: h,
       imageListY: u,
-      imageListGrid: m,
+      imageListGrid: f,
       indexZeroBase: p,
-      amountX: C,
-      amountY: v,
+      amountX: I,
+      amountY: g,
       draggable: b = !0,
       swipeable: x = !0,
       keys: P,
       keysReverse: w,
-      bottomCircleOffset: g,
+      bottomCircleOffset: v,
       autoplay: E,
-      autoplayBehavior: f,
+      autoplayBehavior: m,
       playOnce: y,
-      speed: I,
+      speed: C,
       autoplayReverse: T,
       fullscreen: k,
       magnifier: X,
@@ -3298,10 +3301,10 @@ class ti {
       onNavigate: Ei,
       onError: Ti
     } = s, se = { ciToken: ct, ciFilters: K, ciTransformation: dt, cropAspectRatio: Zt, cropGravity: Dt }, ne = Ut(h, []), re = Ut(u, []);
-    let rt = Ut(m, []);
+    let rt = Ut(f, []);
     rt.length && Array.isArray(rt[0]) && (rt = rt.flat()), this.isGridMode = !!(c || rt.length);
     const Ai = s.zoomMax === 5 && O > 1 ? Math.min(O, 5) : M || 5;
-    if (this.viewerConfig = s, this.amountX = ne.length || C, this.amountY = re.length || v, this.allowSpinX = !!this.amountX, this.allowSpinY = !!this.amountY, this.isGridMode && (this.allowSpinX = !0, this.allowSpinY = !0), this.orientation = this.allowSpinX ? L.X : L.Y, this.activeImageX = T ? this.amountX - 1 : 0, this.activeImageY = T ? this.amountY - 1 : 0, this.bottomCircleOffset = g, this.autoplay = E, this.autoplayBehavior = f, this.playOnce = y, this.speed = I, this.autoplayReverse = T, this.fullscreen = k, this.zoomMax = Ai, this.zoomStep = U || 0.5, this.zoomControls = $ ?? !0, this.zoomControlsPosition = H || "bottom-left", this.scrollHint = Z ?? !0, this.dragSpeed = Math.max(st, so), this.stopAtEdges = et, this.stopAtEdgesX = it ?? et, this.stopAtEdgesY = W ?? et, this.ciParams = se, this.apiVersion = r, this.keysReverse = w, this.info = nt, this.keys = P, this.innerBox = this.innerBox ?? Eo(this.container), this.container.style.aspectRatio = mt || "", this.initialIconShown = pt, this.bottomCircle = q, this.spinDirection = Jo(this.autoplayBehavior, this.allowSpinX, this.allowSpinY), this.dragReverse = Ct, this.hotspots = wt, this.hotspotTrigger = te, this.onHotspotOpen = Ii, this.onHotspotClose = xi, this.onProductClick = Pi, this.onNavigate = Ei, this.hide360Logo = ee, this.logoSrc = Ot, this.inertia = ie, this.pinchZoom = oe, this.hints = Ht, this.hotspotTimelineOnClick = J, It === "dark" ? this.container.classList.add("ci360-theme-dark") : It === "light" && this.container.classList.remove("ci360-theme-dark"), this.container.classList.remove("ci360-hotspot-marker-inverted", "ci360-hotspot-marker-brand"), Rt === "inverted" ? this.container.classList.add("ci360-hotspot-marker-inverted") : Rt === "brand" && (this.container.classList.add("ci360-hotspot-marker-brand"), zt && this.container.style.setProperty("--ci360-hotspot-brand-color", zt)), this.onReady = xt, this.onLoad = Bt, this.onSpin = Gt, this.onAutoplayStart = _t, this.onAutoplayStop = Ft, this.onFullscreenOpen = gi, this.onFullscreenClose = vi, this.onZoomIn = yi, this.onZoomOut = bi, this.onDragStart = wi, this.onDragEnd = Ci, this.onError = Ti, this.srcXConfig = {
+    if (this.viewerConfig = s, this.amountX = ne.length || I, this.amountY = re.length || g, this.allowSpinX = !!this.amountX, this.allowSpinY = !!this.amountY, this.isGridMode && (this.allowSpinX = !0, this.allowSpinY = !0), this.orientation = this.allowSpinX ? L.X : L.Y, this.activeImageX = T ? this.amountX - 1 : 0, this.activeImageY = T ? this.amountY - 1 : 0, this.bottomCircleOffset = v, this.autoplay = E, this.autoplayBehavior = m, this.playOnce = y, this.speed = C, this.autoplayReverse = T, this.fullscreen = k, this.zoomMax = Ai, this.zoomStep = U || 0.5, this.zoomControls = $ ?? !0, this.zoomControlsPosition = H || "bottom-left", this.scrollHint = Z ?? !0, this.dragSpeed = Math.max(st, so), this.stopAtEdges = et, this.stopAtEdgesX = it ?? et, this.stopAtEdgesY = W ?? et, this.ciParams = se, this.apiVersion = r, this.keysReverse = w, this.info = nt, this.keys = P, this.innerBox = this.innerBox ?? Eo(this.container), this.container.style.aspectRatio = mt || "", this.initialIconShown = pt, this.bottomCircle = q, this.spinDirection = Jo(this.autoplayBehavior, this.allowSpinX, this.allowSpinY), this.dragReverse = Ct, this.hotspots = wt, this.hotspotTrigger = te, this.onHotspotOpen = Ii, this.onHotspotClose = xi, this.onProductClick = Pi, this.onNavigate = Ei, this.hide360Logo = ee, this.logoSrc = Ot, this.inertia = ie, this.pinchZoom = oe, this.hints = Ht, this.hotspotTimelineOnClick = J, It === "dark" ? this.container.classList.add("ci360-theme-dark") : It === "light" && this.container.classList.remove("ci360-theme-dark"), this.container.classList.remove("ci360-hotspot-marker-inverted", "ci360-hotspot-marker-brand"), Rt === "inverted" ? this.container.classList.add("ci360-hotspot-marker-inverted") : Rt === "brand" && (this.container.classList.add("ci360-hotspot-marker-brand"), zt && this.container.style.setProperty("--ci360-hotspot-brand-color", zt)), this.onReady = xt, this.onLoad = Bt, this.onSpin = Gt, this.onAutoplayStart = _t, this.onAutoplayStop = Ft, this.onFullscreenOpen = gi, this.onFullscreenClose = vi, this.onZoomIn = yi, this.onZoomOut = bi, this.onDragStart = wi, this.onDragEnd = Ci, this.onError = Ti, this.srcXConfig = {
       folder: n,
       filename: a,
       imageList: ne,
@@ -3461,4 +3464,4 @@ class Rn {
 export {
   Rn as default
 };
-//# sourceMappingURL=ci360-BFobl9uu.mjs.map
+//# sourceMappingURL=ci360-DwDP_e0s.mjs.map
