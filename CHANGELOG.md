@@ -29,6 +29,28 @@ Types of changes:
 
 ---
 
+## 4.9.4 - 2026-03-21
+
+### Added
+
+- Per-hotspot `markerTheme` override (`'default'`, `'inverted'`, `'brand'`) independent of the viewer-level theme
+- `arrowDirection` property for navigation hotspot arrow rotation (degrees)
+- `className` support on hotspot elements for custom styling
+- Dark theme variants for brand marker theme (container-level and per-marker)
+- Navigate CSS variables to container-level theme rules for consistent navigation marker theming
+- `keepOpen`, `onClick`, `markerTheme`, and `arrowDirection` to TypeScript `Hotspot` interface
+- `showHotspotById()` now works with navigation hotspots (previously silently skipped)
+
+### Fixed
+
+- `brandColor` CSS variable not cleaned up when removed from config
+- Initial icon remaining clickable while hidden (missing `pointerEvents` toggle)
+- `arrowDirection` now validated with `Number.isFinite()` to prevent invalid CSS values
+- `showHotspotById()` whitespace-only `navigateTo` handling now consistent with `createHotspot()`
+- `markerTheme` in `Hotspot` interface now uses the `MarkerTheme` type alias
+
+---
+
 ## 4.9.3 - 2026-03-20
 
 ### Fixed

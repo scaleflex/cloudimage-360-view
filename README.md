@@ -101,7 +101,7 @@ Add the library via CDN and create your first 360 viewer in seconds:
 
 ```html
 <!-- Add the library (CSS is auto-injected) -->
-<script src="https://scaleflex.cloudimg.io/v7/plugins/js-cloudimage-360-view/4.9.3/js-cloudimage-360-view.min.js?vh=814b74&func=proxy"></script>
+<script src="https://scaleflex.cloudimg.io/v7/plugins/js-cloudimage-360-view/4.9.4/js-cloudimage-360-view.min.js?vh=32f739&func=proxy"></script>
 
 <!-- Create a container with data attributes -->
 <div
@@ -125,7 +125,7 @@ Add the library via CDN and create your first 360 viewer in seconds:
 ### Option 1: CDN (Recommended for Quick Setup)
 
 ```html
-<script src="https://scaleflex.cloudimg.io/v7/plugins/js-cloudimage-360-view/4.9.3/js-cloudimage-360-view.min.js?vh=814b74&func=proxy"></script>
+<script src="https://scaleflex.cloudimg.io/v7/plugins/js-cloudimage-360-view/4.9.4/js-cloudimage-360-view.min.js?vh=32f739&func=proxy"></script>
 ```
 
 > **Note:** CSS is automatically injected by the script - no separate stylesheet needed.
@@ -514,6 +514,8 @@ All options can be set via JavaScript config or HTML data attributes.
 | `theme` | `data-theme` | `null` | Color theme: `'light'` or `'dark'` |
 | `hotspotTrigger` | `data-hotspot-trigger` | `'hover'` | Hotspot trigger mode: `'hover'` or `'click'` |
 | `hotspotTimelineOnClick` | `data-hotspot-timeline-on-click` | `true` | Show hotspot popup when clicking timeline dot |
+| `markerTheme` | `data-marker-theme` | `null` | Hotspot marker theme: `'default'`, `'inverted'`, or `'brand'` |
+| `brandColor` | `data-brand-color` | `null` | Brand accent color for `'brand'` marker theme (e.g. `'#ff6600'`) |
 
 ### Cloudimage CDN Options
 
@@ -612,9 +614,14 @@ const config = {
 | `orientation` | Yes | `'x'` or `'y'` axis |
 | `containerSize` | Yes | `[width, height]` reference dimensions |
 | `positions` | Yes | Object mapping frame index to `{ x, y }` coordinates |
-| `content` | Yes | HTML content for the tooltip |
+| `content` | No | HTML content for the tooltip |
 | `label` | No | Short label for the hotspot (used in timeline tooltips) |
 | `onClick` | No | Click handler function |
+| `keepOpen` | No | If `true`, the popover stays open until explicitly closed |
+| `className` | No | Custom CSS class(es) to add to the hotspot element |
+| `markerTheme` | No | Per-hotspot theme override: `'default'`, `'inverted'`, or `'brand'` |
+| `navigateTo` | No | Scene ID to navigate to on click (turns hotspot into a navigation pin) |
+| `arrowDirection` | No | Rotation angle (degrees) for the navigation arrow icon. Only applies when `navigateTo` is set |
 
 ### Hotspot Timeline
 
@@ -709,6 +716,76 @@ Customize the timeline appearance with CSS variables:
   --ci360-timeline-tooltip-color: #ffffff;
 }
 ```
+
+### Marker Themes
+
+Control the visual appearance of hotspot markers at the viewer level or per-hotspot.
+
+**Viewer-level theme** applies to all hotspots:
+
+```javascript
+const config = {
+  hotspots: [...],
+  markerTheme: 'inverted', // 'default', 'inverted', or 'brand'
+  brandColor: '#ff6600',   // Used when markerTheme is 'brand'
+};
+```
+
+**Per-hotspot theme** overrides the viewer-level theme for individual markers:
+
+```javascript
+const hotspots = [
+  {
+    id: 'highlight',
+    markerTheme: 'brand', // Override for this hotspot only
+    positions: { 0: { x: 500, y: 300 } },
+    content: '<div>Highlighted feature</div>',
+    // ...
+  },
+  {
+    id: 'subtle',
+    markerTheme: 'inverted', // Different override
+    positions: { 5: { x: 200, y: 150 } },
+    content: '<div>Subtle marker</div>',
+    // ...
+  },
+];
+```
+
+| Theme | Description |
+|-------|-------------|
+| `'default'` | Light marker on light backgrounds (default) |
+| `'inverted'` | Dark marker that blends with dark backgrounds |
+| `'brand'` | Uses `brandColor` as the marker accent color |
+
+All themes adapt automatically to the `theme: 'dark'` setting.
+
+### Navigation Hotspots
+
+Hotspots with a `navigateTo` property become navigation pins that link between scenes:
+
+```javascript
+const hotspots = [
+  {
+    id: 'go-to-interior',
+    navigateTo: 'interior-scene',
+    label: 'View Interior',
+    arrowDirection: 90, // Point downward (default is right)
+    positions: { 10: { x: 600, y: 400 } },
+    // ...
+  },
+];
+
+const config = {
+  hotspots,
+  onNavigate: (sceneId) => {
+    // Handle scene transition
+    console.log(`Navigate to: ${sceneId}`);
+  },
+};
+```
+
+Navigation hotspots display a directional arrow icon. Use `arrowDirection` to rotate the arrow (in degrees, default `0` points right).
 
 ---
 
