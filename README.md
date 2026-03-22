@@ -509,6 +509,7 @@ All options can be set via JavaScript config or HTML data attributes.
 | `bottomCircle` | `data-bottom-circle` | `false` | Show 360° progress indicator |
 | `bottomCircleOffset` | `data-bottom-circle-offset` | `5` | Progress indicator offset (px) |
 | `initialIconShown` | `data-initial-icon` | `true` | Show 360° icon on load |
+| `initOnClick` | `data-init-on-click` | `false` | If true, images load only after the user clicks on the viewer. Shows a first-frame preview with a click overlay. Useful for grids with multiple 360 views |
 | `lazyload` | `data-lazyload` | `true` | Enable lazy loading |
 | `hints` | `data-hints` | `true` | Show interaction hints on load |
 | `theme` | `data-theme` | `null` | Color theme: `'light'` or `'dark'` |

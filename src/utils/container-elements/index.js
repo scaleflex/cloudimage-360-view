@@ -1,5 +1,6 @@
 export { create360ViewCircleIcon } from './create-360-view-circle-icon';
 export { createInitialIcon } from './create-initial-icon';
+export { createClickOverlay } from './create-click-overlay';
 export { createCanvas } from './create-canvas';
 export { createFullscreenIcon } from './create-fullscreen-icon';
 export { createIconsContainer } from './create-icons-container';

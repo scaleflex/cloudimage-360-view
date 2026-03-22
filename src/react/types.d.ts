@@ -203,6 +203,7 @@ export interface CI360Config {
   hotspots?: Hotspot[] | null;
   hotspotTrigger?: HotspotTrigger;
   hotspotTimelineOnClick?: boolean;
+  initOnClick?: boolean;
   onReady?: (data: BaseEventData) => void;
   onLoad?: (data: LoadEventData) => void;
   onSpin?: (data: SpinEventData) => void;

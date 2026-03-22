@@ -134,6 +134,7 @@ const CI360ViewerComponent: ForwardRefRenderFunction<
     hotspots,
     hotspotTrigger,
     hotspotTimelineOnClick,
+    initOnClick,
 
     // Container
     aspectRatio,
@@ -229,6 +230,7 @@ const CI360ViewerComponent: ForwardRefRenderFunction<
       hotspots,
       hotspotTrigger,
       hotspotTimelineOnClick,
+      initOnClick,
 
       // Container
       aspectRatio,
@@ -317,6 +319,7 @@ const CI360ViewerComponent: ForwardRefRenderFunction<
       hotspots,
       hotspotTrigger,
       hotspotTimelineOnClick,
+      initOnClick,
 
       // Container
       aspectRatio,

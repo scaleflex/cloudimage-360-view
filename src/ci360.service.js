@@ -18,6 +18,7 @@ import {
   loop,
   initLazyload,
   createInitialIcon,
+  createClickOverlay,
   removeElementFromContainer,
   delay,
   shouldSwitchSpinDirection,
@@ -44,6 +45,7 @@ import {
   showHotspotTimeline,
   hideHotspotTimeline,
 } from './utils';
+import getFirstCdnImage from './utils/load-images/lazyload/prepare-first-image/get-first-cdn-image';
 import { setFullscreenIconState } from './utils/container-elements/create-fullscreen-icon';
 import { isFullscreenEnabled, getFullscreenElement, requestFullscreen, exitFullscreen } from './utils/fullscreen';
 import { ZoomPan } from './utils/zoom/zoom-pan';
@@ -1166,6 +1168,13 @@ class CI360Viewer {
       this.inertiaAnimationId = null;
     }
 
+    // Clean up initOnClick overlay if still pending
+    if (this.clickOverlay) {
+      this.clickOverlay.removeEventListener('click', this.clickOverlayHandler);
+      this.clickOverlay = null;
+      this.clickOverlayHandler = null;
+    }
+
     // Remove all event listeners
     this.removeEvents();
 
@@ -1785,6 +1794,7 @@ class CI360Viewer {
       theme,
       markerTheme,
       brandColor,
+      initOnClick,
       hotspotTimelineOnClick = true,
       aspectRatio,
       cropAspectRatio,
@@ -1960,14 +1970,70 @@ class CI360Viewer {
     };
 
     if (update) this.removeEvents();
+
+    if (update) {
+      this.attachEvents(draggable, swipeable, keys);
+      return;
+    }
+
+    if (initOnClick) {
+      this.showInitOnClickPreview(draggable, swipeable, keys);
+      return;
+    }
+
     this.attachEvents(draggable, swipeable, keys);
+    this.startLoadingImages();
+  }
 
-    if (update) return;
+  showInitOnClickPreview(draggable, swipeable, keys) {
+    const srcConfig = this.isGridMode
+      ? this.srcGridConfig
+      : (this.allowSpinX ? this.srcXConfig : this.srcYConfig);
 
+    const width = this.container.offsetWidth;
+    const cdnPath = !srcConfig.imageList.length ? generateCdnPath(srcConfig, width) : null;
+
+    const [firstImageSrcInList] = srcConfig.imageList;
+    const firstImageSrc = firstImageSrcInList || (cdnPath ? getFirstCdnImage(cdnPath, srcConfig.indexZeroBase) : null);
+
+    if (!firstImageSrc) return;
+
+    // Show sharp first-frame preview image
+    const previewImg = new Image();
+    previewImg.className = 'cloudimage-360-init-preview';
+    previewImg.alt = '360° view preview — click to load';
+    previewImg.style.cssText = `
+      display: block;
+      width: 100%;
+      object-fit: contain;
+      object-position: center;
+    `;
+    previewImg.src = firstImageSrc;
+    this.innerBox.appendChild(previewImg);
+
+    // Show click overlay
+    this.clickOverlay = createClickOverlay(this.logoSrc);
+    this.innerBox.appendChild(this.clickOverlay);
+
+    this.clickOverlayHandler = () => {
+      this.clickOverlay.removeEventListener('click', this.clickOverlayHandler);
+      removeElementFromContainer(this.innerBox, '.cloudimage-360-click-overlay');
+      removeElementFromContainer(this.innerBox, '.cloudimage-360-init-preview');
+      this.clickOverlay = null;
+      this.clickOverlayHandler = null;
+
+      this.attachEvents(draggable, swipeable, keys);
+      this.startLoadingImages();
+    };
+
+    this.clickOverlay.addEventListener('click', this.clickOverlayHandler);
+  }
+
+  startLoadingImages() {
     const width = this.container.offsetWidth;
 
     if (this.isGridMode) {
-      const cdnPathGrid = !parsedImageListGrid.length ? generateCdnPath(this.srcGridConfig, width) : null;
+      const cdnPathGrid = !this.srcGridConfig.imageList.length ? generateCdnPath(this.srcGridConfig, width) : null;
 
       const loadCallback = (event) => {
         preloadGridImages({
@@ -1992,9 +2058,9 @@ class CI360Viewer {
       initLazyload(cdnPathGrid, this.srcGridConfig, loadCallback);
     } else {
       const cdnPathX =
-        this.allowSpinX && !parsedImagesListX.length ? generateCdnPath(this.srcXConfig, width) : null;
+        this.allowSpinX && !this.srcXConfig.imageList.length ? generateCdnPath(this.srcXConfig, width) : null;
       const cdnPathY =
-        this.allowSpinY && !parsedImagesListY.length ? generateCdnPath(this.srcYConfig, width) : null;
+        this.allowSpinY && !this.srcYConfig.imageList.length ? generateCdnPath(this.srcYConfig, width) : null;
 
       const loadCallback = (event) => {
         preloadImages({

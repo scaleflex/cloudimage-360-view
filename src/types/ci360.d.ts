@@ -49,6 +49,7 @@ declare module CI360 {
     brandColor?: string | null; // Default: null
     hotspots?: Array<{ markerTheme?: 'default' | 'inverted' | 'brand'; [key: string]: any }> | null; // Default: null
     hotspotTrigger?: 'hover' | 'click'; // Default: 'hover'
+    initOnClick?: boolean; // Default: false — if true, images load only after the user clicks on the viewer
     hotspotTimelineOnClick?: boolean; // Default: true
     aspectRatio?: string | null; // Default: null — CSS container aspect-ratio e.g. "16 / 9"
     cropAspectRatio?: string | null; // Default: null — CDN crop ratio e.g. "16:9"

@@ -217,6 +217,9 @@ export interface CI360Config {
   hotspotTrigger?: 'hover' | 'click';
   hotspotTimelineOnClick?: boolean;
 
+  /** If true, images load only after the user clicks on the viewer */
+  initOnClick?: boolean;
+
   // Container
   /** Aspect ratio for the container (e.g., "16/9", "4/3", "1/1") */
   aspectRatio?: string | null;

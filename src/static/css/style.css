@@ -173,7 +173,7 @@
   --ci360-hotspot-marker-color: #ffffff;
   --ci360-hotspot-marker-border-color: rgba(255, 255, 255, 0.9);
   --ci360-hotspot-marker-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  --ci360-hotspot-pulse-color: var(--ci360-hotspot-brand-color);
+  --ci360-hotspot-pulse-color: rgba(255, 255, 255, 0.5);
   --ci360-hotspot-navigate-bg: var(--ci360-hotspot-brand-color);
   --ci360-hotspot-navigate-border-color: rgba(255, 255, 255, 0.9);
 }
@@ -212,7 +212,7 @@
   --ci360-hotspot-marker-color: #ffffff;
   --ci360-hotspot-marker-border-color: rgba(255, 255, 255, 0.9);
   --ci360-hotspot-marker-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  --ci360-hotspot-pulse-color: var(--ci360-hotspot-brand-color, #00aaff);
+  --ci360-hotspot-pulse-color: rgba(255, 255, 255, 0.5);
   --ci360-hotspot-navigate-bg: var(--ci360-hotspot-brand-color, #00aaff);
   --ci360-hotspot-navigate-border-color: rgba(255, 255, 255, 0.9);
 }
@@ -345,6 +345,46 @@
 
 .cloudimage-initial-icon:hover {
   transform: translate(-50%, -50%) scale(1.08);
+}
+
+/* ============================================
+   Click-to-Load Overlay (initOnClick)
+   ============================================ */
+
+.cloudimage-360-click-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 22;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.cloudimage-360-click-overlay:hover {
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.cloudimage-360-click-overlay-icon {
+  position: static;
+  transform: none;
+}
+
+.cloudimage-360-click-overlay:hover .cloudimage-360-click-overlay-icon {
+  transform: scale(1.08);
+}
+
+.cloudimage-360-click-overlay-label {
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  user-select: none;
 }
 
 /* ============================================
