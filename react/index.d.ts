@@ -76,9 +76,15 @@ export interface Hotspot {
   content?: string;
   data?: PopoverData;
   className?: string;
+  /** If true, the popover stays open until explicitly closed. */
+  keepOpen?: boolean;
+  /** Custom click handler for the hotspot. */
+  onClick?: (event: MouseEvent, popperInstance: any, hotspotId: string) => void;
+  /** Per-hotspot marker theme override. */
+  markerTheme?: MarkerTheme;
   /** Scene ID to navigate to when this hotspot is clicked. */
   navigateTo?: string;
-  /** Rotation angle (degrees) for the navigation arrow icon. */
+  /** Rotation angle (degrees) for the navigation arrow icon. Only applies when navigateTo is set. */
   arrowDirection?: number;
 }
 
@@ -197,6 +203,7 @@ export interface CI360Config {
   hotspots?: Hotspot[] | null;
   hotspotTrigger?: HotspotTrigger;
   hotspotTimelineOnClick?: boolean;
+  initOnClick?: boolean;
   onReady?: (data: BaseEventData) => void;
   onLoad?: (data: LoadEventData) => void;
   onSpin?: (data: SpinEventData) => void;
