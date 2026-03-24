@@ -28,7 +28,7 @@ jobs:
           cache: npm
 
       - run: npm ci
-      - run: npm ci --prefix demo/react-demo
+      - run: npm install --prefix demo/react-demo
       - run: npm run build:demo
 
       - uses: actions/configure-pages@v5
