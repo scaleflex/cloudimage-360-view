@@ -1,6 +1,6 @@
 {
   "name": "@cloudimage/360-view",
-  "version": "4.9.5",
+  "version": "4.9.6",
   "main": "dist/360-view.min.js",
   "types": "src/types/ci360.d.ts",
   "files": [
@@ -59,7 +59,8 @@
     "publish": "npm run build:demo && npm run deploy:demo",
     "test": "vitest",
     "test:run": "vitest run",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage",
+    "release": "node scripts/release-cdn.mjs plugin"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.2",
