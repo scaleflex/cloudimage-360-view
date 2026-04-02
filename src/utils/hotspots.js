@@ -123,6 +123,7 @@ export const calculateHotspotPositions = ({
   initialContainerSize,
   imageAspectRatio,
   hotspotsConfig,
+  usePercentages = false,
 }) => {
   const [initialWidth, initialHeight] = initialContainerSize;
   let width = newWidth;
@@ -140,17 +141,26 @@ export const calculateHotspotPositions = ({
     offsetX = (newWidth - width) / 2;
   }
 
-  const widthRatio = width / initialWidth;
-  const heightRatio = height / initialHeight;
+  const widthRatio = usePercentages ? 1 : width / initialWidth;
+  const heightRatio = usePercentages ? 1 : height / initialHeight;
 
   return hotspotsConfig.map((hotspot) => {
     const updatedPositions = {};
 
     Object.entries(hotspot.initialPositions).forEach(([key, initialPosition]) => {
-      updatedPositions[key] = {
-        x: initialPosition.x * widthRatio + offsetX,
-        y: initialPosition.y * heightRatio + offsetY,
-      };
+      if (usePercentages) {
+        // Positions are 0-100 percentages of the image draw area
+        updatedPositions[key] = {
+          x: (initialPosition.x / 100) * width + offsetX,
+          y: (initialPosition.y / 100) * height + offsetY,
+        };
+      } else {
+        // Positions are pixels relative to initialContainerSize
+        updatedPositions[key] = {
+          x: initialPosition.x * widthRatio + offsetX,
+          y: initialPosition.y * heightRatio + offsetY,
+        };
+      }
     });
 
     return { ...hotspot, positions: updatedPositions };

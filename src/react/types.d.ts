@@ -71,6 +71,8 @@ export interface Hotspot {
   label?: string;
   markerStyle?: MarkerStyle;
   orientation?: HotspotOrientation;
+  /** Reference container dimensions [width, height] for pixel-based positions.
+   *  When omitted, positions are treated as percentages (0-100) of the image draw area. */
   containerSize?: [number, number];
   positions: Record<number, HotspotPosition>;
   content?: string;

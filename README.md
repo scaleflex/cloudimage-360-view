@@ -613,7 +613,7 @@ const config = {
 |----------|----------|-------------|
 | `id` | Yes | Unique identifier |
 | `orientation` | Yes | `'x'` or `'y'` axis |
-| `containerSize` | Yes | `[width, height]` reference dimensions |
+| `containerSize` | No | `[width, height]` reference dimensions for pixel-based positions. When omitted, positions are treated as percentages (0-100) of the image draw area |
 | `positions` | Yes | Object mapping frame index to `{ x, y }` coordinates |
 | `content` | No | HTML content for the tooltip |
 | `label` | No | Short label for the hotspot (used in timeline tooltips) |

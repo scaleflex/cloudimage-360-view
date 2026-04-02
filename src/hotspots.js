@@ -38,7 +38,24 @@ class Hotspot {
     this.onProductClick = options.onProductClick || null;
     this.onNavigate = options.onNavigate || null;
 
+    // containerSize must be consistent across all hotspots — read from the first one.
     const { containerSize } = hotspotsConfig[0];
+
+    const mismatch = hotspotsConfig.some((h) => {
+      const cs = h.containerSize;
+      if (!containerSize) return !!cs;
+      if (!cs) return true;
+      return cs[0] !== containerSize[0] || cs[1] !== containerSize[1];
+    });
+    if (mismatch) {
+      console.warn(
+        '[ci360] All hotspots must use the same containerSize value. ' +
+        'Only the first hotspot\'s containerSize is used.'
+      );
+    }
+
+    // When containerSize is omitted, positions are treated as percentages (0-100)
+    this.usePercentages = !containerSize;
     this.initialContainerSize = containerSize || [container.offsetWidth, container.offsetHeight];
 
     this.initHotspots();
@@ -63,6 +80,7 @@ class Hotspot {
       initialContainerSize: this.initialContainerSize,
       imageAspectRatio: this.imageAspectRatio,
       hotspotsConfig: this.hotspotsConfig,
+      usePercentages: this.usePercentages,
     });
 
     this.updateHotspotPosition(this.currentActiveIndex, this.currentOrientation);
